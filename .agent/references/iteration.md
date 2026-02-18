@@ -10,6 +10,12 @@
 
 **Focus**: Generate 3-5 variations, use design tokens, explain tradeoffs.
 
+> [!CAUTION]
+> **Output format is non-negotiable**: All output MUST be React `.tsx` files using SDS components.
+> Never produce standalone HTML files, raw CSS, or `<div>` soup — even for quick explorations.
+> Every prototype must import from `primitives`, `layout`, `compositions`, or `hooks`.
+> Files go in `src/examples/iterations/<feature-name>/` with a `ComparisonView.tsx` switcher.
+
 ## Constraints
 
 ### Use Design system Tokens

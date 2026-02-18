@@ -107,6 +107,13 @@ These modes are **mutually exclusive**. Determine which mode applies before proc
 
 **Constraints**: Use design tokens, create variations, provide clear rationale for differences.
 
+**⚠️ Pre-flight checklist — confirm before writing any code:**
+- [ ] Output is React `.tsx` files (never standalone HTML/CSS)
+- [ ] All components imported from `primitives`, `layout`, `compositions`, or `hooks`
+- [ ] Files placed in `src/examples/iterations/<feature-name>/`
+- [ ] No hardcoded colors, spacing, or typography — design tokens only
+- [ ] `ComparisonView` component created to switch between variations
+
 ---
 
 ### 5. Finalization Mode - Production-Ready Implementation

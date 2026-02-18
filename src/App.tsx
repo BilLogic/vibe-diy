@@ -2,6 +2,7 @@ import { Footer, Header } from "compositions";
 import { AllProviders } from "data";
 import { Demo } from "./examples/Demo";
 import { FAQs } from "./examples/FAQs";
+import { MavenCoursePageComparison } from "./examples/iterations/maven-course-page/ComparisonView";
 import { PanelSections } from "./examples/PanelSections";
 import { PricingGrid } from "./examples/PricingGrid";
 import { ProductDetails } from "./examples/ProductDetails";
@@ -13,6 +14,7 @@ function App() {
     <AllProviders>
       <Header />
       <Demo />
+      <MavenCoursePageComparison />
       <WelcomeHero />
       <PanelSections />
       <PricingGrid />

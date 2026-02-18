@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variation C: Structured Pro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --sds-size-space-200: 0.5rem;
+            --sds-size-space-300: 0.75rem;
+            --sds-size-space-400: 1rem;
+            --sds-size-space-600: 1.5rem;
+            --sds-size-space-800: 2rem;
+            --sds-size-space-1200: 3rem;
+            --sds-size-space-1600: 4rem;
+            --sds-size-space-2400: 6rem;
+            --sds-size-radius-100: 0.25rem;
+            --sds-size-radius-200: 0.5rem;
+            --sds-size-radius-400: 1rem;
+            --sds-typography-scale-01: 0.75rem;
+            --sds-typography-scale-02: 0.875rem;
+            --sds-typography-scale-03: 1rem;
+            --sds-typography-scale-04: 1.25rem;
+            --sds-typography-scale-05: 1.5rem;
+            --sds-typography-scale-06: 2rem;
+            --sds-typography-scale-07: 2.5rem;
+            --sds-typography-scale-08: 3rem;
+            --vc-bg: #f4f5f6;
+            --vc-surface: #ffffff;
+            --vc-surface-alt: #f9fafb;
+            --vc-text: #1e293b;
+            --vc-text-secondary: #64748b;
+            --vc-text-tertiary: #94a3b8;
+            --vc-accent: #0d9488;
+            --vc-accent-light: #f0fdfa;
+            --vc-accent-mid: #99f6e4;
+            --vc-border: #e2e8f0;
+            --vc-border-strong: #cbd5e1;
+            --vc-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--vc-bg);
+            color: var(--vc-text);
+            line-height: 1.5;
+            font-size: var(--sds-typography-scale-02);
+        }
+
+        /* NAV */
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--sds-size-space-400) var(--sds-size-space-2400);
+            border-bottom: 1px solid var(--vc-border);
+            background: var(--vc-surface);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-logo {
+            font-size: var(--sds-typography-scale-03);
+            font-weight: 700;
+            color: var(--vc-text);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--sds-size-space-800);
+        }
+
+        .nav-links a {
+            color: var(--vc-text-secondary);
+            text-decoration: none;
+            font-size: var(--sds-typography-scale-02);
+            font-weight: 500;
+            transition: color 0.15s;
+        }
+
+        .nav-links a:hover {
+            color: var(--vc-accent);
+        }
+
+        .nav-cta {
+            background: var(--vc-accent);
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: var(--sds-size-radius-100);
+            font-size: var(--sds-typography-scale-02);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .nav-cta:hover {
+            background: #0f766e;
+        }
+
+        /* HERO */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: var(--sds-size-space-1600);
+            padding: var(--sds-size-space-1600) var(--sds-size-space-2400);
+            background: var(--vc-surface);
+            border-bottom: 1px solid var(--vc-border);
+        }
+
+        .hero-breadcrumb {
+            font-size: var(--sds-typography-scale-01);
+            color: var(--vc-text-tertiary);
+            margin-bottom: var(--sds-size-space-600);
+        }
+
+        .hero-breadcrumb a {
+            color: var(--vc-accent);
+            text-decoration: none;
+        }
+
+        .hero-title {
+            font-size: clamp(1.75rem, 3vw, var(--sds-typography-scale-07));
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            margin-bottom: var(--sds-size-space-400);
+        }
+
+        .hero-tagline {
+            font-size: var(--sds-typography-scale-03);
+            color: var(--vc-text-secondary);
+            line-height: 1.6;
+            margin-bottom: var(--sds-size-space-800);
+            max-width: 480px;
+        }
+
+        .hero-rating {
+            display: flex;
+            align-items: center;
+            gap: var(--sds-size-space-300);
+            margin-bottom: var(--sds-size-space-800);
+        }
+
+        .stars {
+            color: #f59e0b;
+            font-size: var(--sds-typography-scale-02);
+        }
+
+        .rating-text {
+            font-size: var(--sds-typography-scale-02);
+            color: var(--vc-text-secondary);
+        }
+
+        .stat-pills {
+            display: flex;
+            gap: var(--sds-size-space-300);
+            flex-wrap: wrap;
+        }
+
+        .stat-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.3rem 0.7rem;
+            border: 1px solid var(--vc-border-strong);
+            border-radius: var(--sds-size-radius-400);
+            font-size: var(--sds-typography-scale-01);
+            font-weight: 500;
+            color: var(--vc-text-secondary);
+            background: var(--vc-surface);
+        }
+
+        /* ENROLL CARD */
+        .enroll-card {
+            background: var(--vc-surface);
+            border: 1px solid var(--vc-border);
+            border-radius: var(--sds-size-radius-200);
+            padding: var(--sds-size-space-1200);
+            box-shadow: var(--vc-shadow);
+        }
+
+        .enroll-price {
+            font-size: var(--sds-typography-scale-07);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.25rem;
+        }
+
+        .enroll-price-note {
+            font-size: var(--sds-typography-scale-01);
+            color: var(--vc-text-secondary);
+            margin-bottom: var(--sds-size-space-800);
+        }
+
+        .enroll-btn {
+            display: block;
+            width: 100%;
+            background: var(--vc-accent);
+            color: #fff;
+            padding: 0.8rem;
+            border-radius: var(--sds-size-radius-100);
+            font-size: var(--sds-typography-scale-03);
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            margin-bottom: var(--sds-size-space-600);
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .enroll-btn:hover {
+            background: #0f766e;
+        }
+
+        .enroll-features {
+            list-style: none;
+            margin-bottom: var(--sds-size-space-800);
+        }
+
+        .enroll-features li {
+            display: flex;
+            align-items: center;
+            gap: var(--sds-size-space-300);
+            font-size: var(--sds-typography-scale-02);
+            color: var(--vc-text-secondary);
+            padding: 0.35rem 0;
+            border-bottom: 1px solid var(--vc-border);
+        }
+
+        .enroll-features li:last-child {
+            border-bottom: none;
+        }
+
+        .check {
+            color: var(--vc-accent);
+            font-weight: 700;
+        }
+
+        .email-row {
+            display: flex;
+            gap: var(--sds-size-space-200);
+        }
+
+        .email-input {
+            flex: 1;
+            border: 1px solid var(--vc-border);
+            border-radius: var(--sds-size-radius-100);
+            padding: 0.55rem 0.75rem;
+            font-size: var(--sds-typography-scale-02);
+            font-family: inherit;
+            color: var(--vc-text);
+            background: var(--vc-bg);
+        }
+
+        .email-input::placeholder {
+            color: var(--vc-text-tertiary);
+        }
+
+        .email-btn {
+            background: var(--vc-bg);
+            border: 1px solid var(--vc-border);
+            border-radius: var(--sds-size-radius-100);
+            padding: 0.55rem 0.75rem;
+            font-size: var(--sds-typography-scale-02);
+            font-family: inherit;
+            color: var(--vc-text-secondary);
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .guarantee-note {
+            display: flex;
+            align-items: center;
+            gap: var(--sds-size-space-200);
+            margin-top: var(--sds-size-space-600);
+            font-size: var(--sds-typography-scale-01);
+            color: var(--vc-text-tertiary);
+        }
+
+        /* OUTCOMES */
+        .outcomes {
+            padding: var(--sds-size-space-1600) var(--sds-size-space-2400);
+            background: var(--vc-bg);
+            border-bottom: 1px solid var(--vc-border);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: baseline;
+            gap: var(--sds-size-space-400);
+            margin-bottom: var(--sds-size-space-1200);
+        }
+
+        .section-title {
+            font-size: var(--sds-typography-scale-05);
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        .section-count {
+            font-size: var(--sds-typography-scale-02);
+            color: var(--vc-text-tertiary);
+        }
+
+        .outcomes-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            border: 1px solid var(--vc-border);
+            border-radius: var(--sds-size-radius-200);
+            overflow: hidden;
+            background: var(--vc-surface);
+        }
+
+        .outcome-row {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--sds-size-space-600);
+            padding: var(--sds-size-space-800) var(--sds-size-space-1200);
+            border-bottom: 1px solid var(--vc-border);
+            border-right: 1px solid var(--vc-border);
+        }
+
+        .outcome-row:nth-child(even) {
+            border-right: none;
+        }
+
+        .outcome-row:nth-last-child(-n+2) {
+            border-bottom: none;
+        }
+
+        .outcome-check {
+            color: var(--vc-accent);
+            font-size: var(--sds-typography-scale-04);
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+
+        .outcome-text {
+            font-size: var(--sds-typography-scale-02);
+            color: var(--vc-text);
+            line-height: 1.5;
+        }
+
+        /* CURRICULUM */
+        .curriculum {
+            padding: var(--sds-size-space-1600) var(--sds-size-space-2400);
+            background: var(--vc-surface);
+            border-bottom: 1px solid var(--vc-border);
+        }
+
+        .tab-nav {
+            display: flex;
+            gap: 0;
+            border: 1px solid var(--vc-border);
+            border-radius: var(--sds-size-radius-200);
+            overflow: hidden;
+            margin-bottom: var(--sds-size-space-1200);
+            width: fit-content;
+        }
+
+        .tab-btn {
+            padding: 0.55rem 1.25rem;
+            font-size: var(--sds-typography-scale-02);
+            font-weight: 500;
+            border: none;
+            background: var(--vc-surface);
+            color: var(--vc-text-secondary);
+            cursor: pointer;
+            font-family: inherit;
+            border-right: 1px solid var(--vc-border);
+            transition: all 0.15s;
+        }
+
+        .tab-btn:last-child {
+            border-right: none;
+        }
+
+        .tab-btn.active {
+            background: var(--vc-accent);
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .tab-panel {
+            display: none;
+        }
+
+        .tab-panel.active {
+            display: block;
+        }
+
+        .lesson-table {
+            width: 100%;
+            border: 1px solid var(--vc-border);
+            border-radius: var(--sds-size-radius-200);
+            overflow: hidden;
+        }
+
+        .lesson-row {
+            display: grid;
+            grid-template-columns: 1fr auto auto;
+            gap: var(--sds-size-space-800);
+            align-items: center;
+            padding: var(--sds-size-space-600) var(--sds-size-space-1200);
+            border-bottom: 1px solid var(--vc-border);
+            background: var(--vc-surface);
+        }
+
+        .lesson-row:last-child {
+            border-bottom: none;
+        }
+
+        .lesson-row:hover {
+            background: var(--vc-surface-alt);
+        }
+
+        .lesson-name {
+            font-size: var(--sds-typography-scale-02);
+            font-weight: 500;
+            color: var(--vc-text);
+        }
+
+        .lesson-tag {
+            font-size: var(--sds-typography-scale-01);
+            font-weight: 600;
+            padding: 0.2rem 0.6rem;
+            border-radius: var(--sds-size-radius-400);
+        }
+
+        .tag-live {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .tag-workshop {
+            background: var(--vc-accent-light);
+            color: var(--vc-accent);
+        }
+
+        .tag-async {
+            background: #f3f4f6;
+            color: #6b7280;
+        }
+
+        .lesson-duration {
+            font-size: var(--sds-typography-scale-01);
+            color: var(--vc-text-tertiary);
+            white-space: nowrap;
+        }
+
+        /* INSTRUCTOR */
+        .instructor-section {
+            padding: var(--sds-size-space-1600) var(--sds-size-space-2400);
+            background: var(--vc-bg);
+            border-bottom: 1px solid var(--vc-border);
+        }
+
+        .instructor-row {
+            display: flex;
+            align-items: center;
+            gap: var(--sds-size-space-1200);
+            background: var(--vc-surface);
+            border: 1px solid var(--vc-border);
+            border-radius: var(--sds-size-radius-200);
+            padding: var(--sds-size-space-1200);
+        }
+
+        .instructor-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--vc-accent), #0f766e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--sds-typography-scale-05);
+            font-weight: 700;
+            color: #fff;
+            flex-shrink: 0;
+        }
+
+        .instructor-name {
+            font-size: var(--sds-typography-scale-04);
+            font-weight: 700;
+        }
+
+        .instructor-title {
+            font-size: var(--sds-typography-scale-02);
+            color: var(--vc-text-secondary);
+        }
+
+        .instructor-bio-short {
+            font-size: var(--sds-typography-scale-02);
+            color: var(--vc-text-secondary);
+            line-height: 1.6;
+            flex: 1;
+        }
+
+        .instructor-link {
+            font-size: var(--sds-typography-scale-02);
+            color: var(--vc-accent);
+            text-decoration: none;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .logos-mini {
+            display: flex;
+            gap: var(--sds-size-space-400);
+            flex-wrap: wrap;
+            margin-top: var(--sds-size-space-800);
+        }
+
+        .logo-mini {
+            font-size: var(--sds-typography-scale-01);
+            color: var(--vc-text-tertiary);
+            background: var(--vc-bg);
+            border: 1px solid var(--vc-border);
+            padding: 0.25rem 0.65rem;
+            border-radius: var(--sds-size-radius-100);
+        }
+
+        /* REVIEWS */
+        .reviews {
+            padding: var(--sds-size-space-1600) var(--sds-size-space-2400);
+            background: var(--vc-surface);
+            border-bottom: 1px solid var(--vc-border);
+        }
+
+        .review-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            border: 1px solid var(--vc-border);
+            border-radius: var(--sds-size-radius-200);
+            overflow: hidden;
+        }
+
+        .review-row {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: var(--sds-size-space-800);
+            align-items: center;
+            padding: var(--sds-size-space-800) var(--sds-size-space-1200);
+            border-bottom: 1px solid var(--vc-border);
+            background: var(--vc-surface);
+        }
+
+        .review-row:last-child {
+            border-bottom: none;
+        }
+
+        .reviewer-avatar-sm {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--vc-accent-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--sds-typography-scale-02);
+            font-weight: 700;
+            color: var(--vc-accent);
+            flex-shrink: 0;
+        }
+
+        .reviewer-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 0.1rem;
+        }
+
+        .reviewer-name {
+            font-size: var(--sds-typography-scale-02);
+            font-weight: 600;
+        }
+
+        .reviewer-company {
+            font-size: var(--sds-typography-scale-01);
+            color: var(--vc-text-tertiary);
+        }
+
+        .review-quote {
+            font-size: var(--sds-typography-scale-02);
+            color: var(--vc-text-secondary);
+            line-height: 1.5;
+        }
+
+        .review-stars-sm {
+            color: #f59e0b;
+            font-size: var(--sds-typography-scale-02);
+            white-space: nowrap;
+        }
+
+        /* FAQ */
+        .faq {
+            padding: var(--sds-size-space-1600) var(--sds-size-space-2400);
+            background: var(--vc-bg);
+            border-bottom: 1px solid var(--vc-border);
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--sds-size-space-400);
+        }
+
+        .accordion-item {
+            background: var(--vc-surface);
+            border: 1px solid var(--vc-border);
+            border-radius: var(--sds-size-radius-200);
+            overflow: hidden;
+        }
+
+        .accordion-trigger {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--sds-size-space-600) var(--sds-size-space-800);
+            cursor: pointer;
+            background: transparent;
+            width: 100%;
+            border: none;
+            color: var(--vc-text);
+            font-family: inherit;
+            text-align: left;
+            font-size: var(--sds-typography-scale-02);
+            font-weight: 600;
+        }
+
+        .accordion-chevron {
+            color: var(--vc-text-tertiary);
+            font-size: var(--sds-typography-scale-03);
+            transition: transform 0.2s;
+            flex-shrink: 0;
+        }
+
+        .accordion-item.open .accordion-chevron {
+            transform: rotate(180deg);
+            color: var(--vc-accent);
+        }
+
+        .accordion-body {
+            display: none;
+            padding: var(--sds-size-space-600) var(--sds-size-space-800);
+            background: var(--vc-bg);
+            border-top: 1px solid var(--vc-border);
+        }
+
+        .accordion-item.open .accordion-body {
+            display: block;
+        }
+
+        .accordion-body p {
+            font-size: var(--sds-typography-scale-02);
+            color: var(--vc-text-secondary);
+            line-height: 1.65;
+        }
+
+        /* FOOTER */
+        .footer-cta {
+            padding: var(--sds-size-space-1600) var(--sds-size-space-2400);
+            background: var(--vc-surface);
+            text-align: center;
+            border-bottom: 1px solid var(--vc-border);
+        }
+
+        .footer-cta-title {
+            font-size: var(--sds-typography-scale-06);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: var(--sds-size-space-400);
+        }
+
+        .footer-cta-sub {
+            font-size: var(--sds-typography-scale-02);
+            color: var(--vc-text-secondary);
+            margin-bottom: var(--sds-size-space-800);
+        }
+
+        .btn-accent {
+            background: var(--vc-accent);
+            color: #fff;
+            padding: 0.8rem 2rem;
+            border-radius: var(--sds-size-radius-100);
+            font-size: var(--sds-typography-scale-03);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-accent:hover {
+            background: #0f766e;
+        }
+
+        .footer-email-link {
+            display: block;
+            margin-top: var(--sds-size-space-400);
+            font-size: var(--sds-typography-scale-02);
+            color: var(--vc-text-tertiary);
+            text-decoration: none;
+        }
+
+        .footer-email-link:hover {
+            color: var(--vc-accent);
+        }
+
+        .footer {
+            padding: var(--sds-size-space-800) var(--sds-size-space-2400);
+            background: var(--vc-bg);
+            border-top: 1px solid var(--vc-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-copy {
+            font-size: var(--sds-typography-scale-01);
+            color: var(--vc-text-tertiary);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: var(--sds-size-space-600);
+        }
+
+        .footer-links a {
+            font-size: var(--sds-typography-scale-01);
+            color: var(--vc-text-tertiary);
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="nav">
+        <div class="nav-logo">xinran.ma</div>
+        <div class="nav-links">
+            <a href="#outcomes">Outcomes</a>
+            <a href="#curriculum">Curriculum</a>
+            <a href="#instructor">Instructor</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#faq">FAQ</a>
+        </div>
+        <a href="#enroll" class="nav-cta">Enroll — $999</a>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-breadcrumb"><a href="#">All Courses</a> → Design → AI</div>
+            <h1 class="hero-title">AI for Product Designers</h1>
+            <p class="hero-tagline">Master LLMs, generative workflows, and agentic UX. A 10-day intensive for senior
+                product designers led by Xinran Ma.</p>
+            <div class="hero-rating">
+                <span class="stars">★★★★★</span>
+                <span class="rating-text">4.7 (140 reviews)</span>
+            </div>
+            <div class="stat-pills">
+                <span class="stat-pill">⏱ 10 days</span>
+                <span class="stat-pill">📊 Intermediate</span>
+                <span class="stat-pill">📅 Mar 10–20, 2026</span>
+                <span class="stat-pill">👥 50 seats max</span>
+            </div>
+        </div>
+
+        <div class="enroll-card" id="enroll">
+            <div class="enroll-price">$999</div>
+            <div class="enroll-price-note">USD · One-time · Lifetime access</div>
+            <button class="enroll-btn">Enroll in Next Cohort</button>
+            <ul class="enroll-features">
+                <li><span class="check">✓</span> Live virtual sessions</li>
+                <li><span class="check">✓</span> Limited to 50 slots</li>
+                <li><span class="check">✓</span> High-touch mentorship</li>
+                <li><span class="check">✓</span> Certificate of completion</li>
+                <li><span class="check">✓</span> 14-day money-back guarantee</li>
+            </ul>
+            <div class="email-row">
+                <input class="email-input" type="email" placeholder="your@email.com">
+                <button class="email-btn">Notify me</button>
+            </div>
+            <div class="guarantee-note">🔒 Secure checkout · Maven Guarantee</div>
+        </div>
+    </section>
+
+    <section class="outcomes" id="outcomes">
+        <div class="section-header">
+            <h2 class="section-title">What You'll Learn</h2>
+            <span class="section-count">6 outcomes</span>
+        </div>
+        <div class="outcomes-list">
+            <div class="outcome-row"><span class="outcome-check">✓</span><span class="outcome-text">Ship AI features
+                    confidently without breaking existing flows</span></div>
+            <div class="outcome-row"><span class="outcome-check">✓</span><span class="outcome-text">Design for LLMs,
+                    agents, and generative interfaces</span></div>
+            <div class="outcome-row"><span class="outcome-check">✓</span><span class="outcome-text">Automate user
+                    research using custom-trained GPTs</span></div>
+            <div class="outcome-row"><span class="outcome-check">✓</span><span class="outcome-text">Build AI-first
+                    prototypes in under 2 hours</span></div>
+            <div class="outcome-row"><span class="outcome-check">✓</span><span class="outcome-text">Lead AI design
+                    strategy in your product organization</span></div>
+            <div class="outcome-row"><span class="outcome-check">✓</span><span class="outcome-text">Navigate ethics,
+                    bias, and responsible AI design</span></div>
+        </div>
+    </section>
+
+    <section class="curriculum" id="curriculum">
+        <div class="section-header">
+            <h2 class="section-title">Curriculum</h2>
+            <span class="section-count">5 modules · 10 days</span>
+        </div>
+        <div class="tab-nav">
+            <button class="tab-btn active" onclick="switchTab(this, 'week1')">Module 1–2</button>
+            <button class="tab-btn" onclick="switchTab(this, 'week2')">Module 3–4</button>
+            <button class="tab-btn" onclick="switchTab(this, 'week3')">Module 5</button>
+        </div>
+        <div id="week1" class="tab-panel active">
+            <div class="lesson-table">
+                <div class="lesson-row"><span class="lesson-name">Foundations of LLMs for Designers</span><span
+                        class="lesson-tag tag-live">Live Session</span><span class="lesson-duration">90 min</span></div>
+                <div class="lesson-row"><span class="lesson-name">Context Windows & Token Thinking</span><span
+                        class="lesson-tag tag-async">Async</span><span class="lesson-duration">45 min</span></div>
+                <div class="lesson-row"><span class="lesson-name">The Agentic UX Framework</span><span
+                        class="lesson-tag tag-live">Live Session</span><span class="lesson-duration">90 min</span></div>
+                <div class="lesson-row"><span class="lesson-name">Trust, Transparency & Control Patterns</span><span
+                        class="lesson-tag tag-workshop">Workshop</span><span class="lesson-duration">60 min</span></div>
+            </div>
+        </div>
+        <div id="week2" class="tab-panel">
+            <div class="lesson-table">
+                <div class="lesson-row"><span class="lesson-name">Prompt Engineering for Visual Systems</span><span
+                        class="lesson-tag tag-live">Live Session</span><span class="lesson-duration">90 min</span></div>
+                <div class="lesson-row"><span class="lesson-name">Building Reusable Prompt Libraries</span><span
+                        class="lesson-tag tag-workshop">Workshop</span><span class="lesson-duration">60 min</span></div>
+                <div class="lesson-row"><span class="lesson-name">AI-First Prototyping: v0, Cursor & Stitch</span><span
+                        class="lesson-tag tag-live">Live Session</span><span class="lesson-duration">90 min</span></div>
+                <div class="lesson-row"><span class="lesson-name">Prototype Sprint: Build in 2 Hours</span><span
+                        class="lesson-tag tag-workshop">Workshop</span><span class="lesson-duration">120 min</span>
+                </div>
+            </div>
+        </div>
+        <div id="week3" class="tab-panel">
+            <div class="lesson-table">
+                <div class="lesson-row"><span class="lesson-name">Ethics, Bias & Responsible AI Design</span><span
+                        class="lesson-tag tag-live">Live Session</span><span class="lesson-duration">90 min</span></div>
+                <div class="lesson-row"><span class="lesson-name">The Future of the Designer Role</span><span
+                        class="lesson-tag tag-live">Live Session</span><span class="lesson-duration">60 min</span></div>
+                <div class="lesson-row"><span class="lesson-name">Final Project Presentations</span><span
+                        class="lesson-tag tag-workshop">Workshop</span><span class="lesson-duration">120 min</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="instructor-section" id="instructor">
+        <div class="section-header">
+            <h2 class="section-title">Instructor</h2>
+        </div>
+        <div class="instructor-row">
+            <div class="instructor-avatar">X</div>
+            <div>
+                <div class="instructor-name">Xinran Ma</div>
+                <div class="instructor-title">Staff Product Designer · AI Researcher</div>
+                <div class="logos-mini">
+                    <span class="logo-mini">Amazon</span>
+                    <span class="logo-mini">Workday</span>
+                    <span class="logo-mini">Pratt Institute</span>
+                    <span class="logo-mini">City of Vancouver</span>
+                </div>
+            </div>
+            <p class="instructor-bio-short">Staff Product Designer with 10+ years at world-class technology companies.
+                Leads AI design initiatives bridging engineering and human-centric experiences.</p>
+            <a href="#" class="instructor-link">LinkedIn →</a>
+        </div>
+    </section>
+
+    <section class="reviews" id="reviews">
+        <div class="section-header">
+            <h2 class="section-title">Student Reviews</h2>
+            <span class="section-count">★ 4.7 · 140 reviews</span>
+        </div>
+        <div class="review-list">
+            <div class="review-row">
+                <div class="reviewer-avatar-sm">D</div>
+                <div class="reviewer-meta">
+                    <div class="reviewer-name">David Chen</div>
+                    <div class="reviewer-company">Design Manager @ Meta</div>
+                </div>
+                <p class="review-quote">"The most comprehensive AI curriculum I've found. Xinran teaches you to think
+                    about AI as a design material."</p>
+                <div class="review-stars-sm">★★★★★</div>
+            </div>
+            <div class="review-row">
+                <div class="reviewer-avatar-sm">S</div>
+                <div class="reviewer-meta">
+                    <div class="reviewer-name">Sarah Jenkins</div>
+                    <div class="reviewer-company">Senior UX Designer @ Airbnb</div>
+                </div>
+                <p class="review-quote">"I went from intimidated by LLMs to leading our company's AI design sprint in
+                    two weeks."</p>
+                <div class="review-stars-sm">★★★★★</div>
+            </div>
+            <div class="review-row">
+                <div class="reviewer-avatar-sm">M</div>
+                <div class="reviewer-meta">
+                    <div class="reviewer-name">Marc Orso</div>
+                    <div class="reviewer-company">Design Lead @ Notion</div>
+                </div>
+                <p class="review-quote">"The frameworks are immediately applicable. I shipped my first AI-driven
+                    prototype within two weeks."</p>
+                <div class="review-stars-sm">★★★★★</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq" id="faq">
+        <div class="section-header">
+            <h2 class="section-title">FAQ</h2>
+        </div>
+        <div class="faq-grid">
+            <div class="accordion-item">
+                <button class="accordion-trigger" onclick="toggleAccordion(this)">Is this for beginners?<span
+                        class="accordion-chevron">⌄</span></button>
+                <div class="accordion-body">
+                    <p>No — intermediate-to-advanced. Assumes 3+ years of product design experience and Figma
+                        familiarity.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-trigger" onclick="toggleAccordion(this)">What software do I need?<span
+                        class="accordion-chevron">⌄</span></button>
+                <div class="accordion-body">
+                    <p>Figma, ChatGPT Plus, and Midjourney. All other tools are free or have free tiers.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-trigger" onclick="toggleAccordion(this)">What if I miss a session?<span
+                        class="accordion-chevron">⌄</span></button>
+                <div class="accordion-body">
+                    <p>All sessions are recorded and uploaded within 2 hours. Recordings available indefinitely.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-trigger" onclick="toggleAccordion(this)">Is there a certificate?<span
+                        class="accordion-chevron">⌄</span></button>
+                <div class="accordion-body">
+                    <p>Yes — a verifiable Maven certificate upon completion, shareable to LinkedIn.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="footer-cta">
+        <h2 class="footer-cta-title">Ready to enroll?</h2>
+        <p class="footer-cta-sub">Join 40+ senior designers in the next cohort starting March 10, 2026.</p>
+        <a href="#enroll" class="btn-accent">Enroll Now — $999</a>
+        <a href="mailto:hello@xinranma.com" class="footer-email-link">Questions? Contact us →</a>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-copy">© 2026 Xinran Ma Studio. All rights reserved.</div>
+        <div class="footer-links">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Contact</a>
+        </div>
+    </footer>
+
+    <script>
+        function toggleAccordion(trigger) {
+            const item = trigger.closest('.accordion-item');
+            item.classList.toggle('open');
+        }
+        function switchTab(btn, panelId) {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+            btn.classList.add('active');
+            document.getElementById(panelId).classList.add('active');
+        }
+    </script>
+</body>
+
+</html>

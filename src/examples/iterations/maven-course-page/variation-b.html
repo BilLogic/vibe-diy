@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variation B: Clean & Airy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --sds-size-space-200: 0.5rem;
+            --sds-size-space-300: 0.75rem;
+            --sds-size-space-400: 1rem;
+            --sds-size-space-600: 1.5rem;
+            --sds-size-space-800: 2rem;
+            --sds-size-space-1200: 3rem;
+            --sds-size-space-1600: 4rem;
+            --sds-size-space-2400: 6rem;
+            --sds-size-radius-100: 0.25rem;
+            --sds-size-radius-200: 0.5rem;
+            --sds-size-radius-400: 1rem;
+            --sds-typography-scale-01: 0.75rem;
+            --sds-typography-scale-02: 0.875rem;
+            --sds-typography-scale-03: 1rem;
+            --sds-typography-scale-04: 1.25rem;
+            --sds-typography-scale-05: 1.5rem;
+            --sds-typography-scale-06: 2rem;
+            --sds-typography-scale-07: 2.5rem;
+            --sds-typography-scale-08: 3rem;
+            --sds-typography-scale-09: 4rem;
+            --vb-bg: #fafaf8;
+            --vb-bg-alt: #f4f4f1;
+            --vb-surface: #ffffff;
+            --vb-text: #111111;
+            --vb-text-secondary: #6b7280;
+            --vb-text-tertiary: #9ca3af;
+            --vb-accent: #0d9488;
+            --vb-accent-light: #f0fdfa;
+            --vb-accent-mid: #ccfbf1;
+            --vb-border: #e5e7eb;
+            --vb-border-strong: #d1d5db;
+            --vb-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+            --vb-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+            --vb-shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--vb-bg);
+            color: var(--vb-text);
+            line-height: 1.6;
+        }
+
+        /* NAV */
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--sds-size-space-600) var(--sds-size-space-2400);
+            border-bottom: 1px solid var(--vb-border);
+            position: sticky;
+            top: 0;
+            background: rgba(250, 250, 248, 0.92);
+            backdrop-filter: blur(12px);
+            z-index: 100;
+        }
+
+        .nav-logo {
+            font-size: var(--sds-typography-scale-04);
+            font-weight: 700;
+            color: var(--vb-text);
+            letter-spacing: -0.02em;
+        }
+
+        .nav-logo span {
+            color: var(--vb-accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--sds-size-space-1200);
+        }
+
+        .nav-links a {
+            color: var(--vb-text-secondary);
+            text-decoration: none;
+            font-size: var(--sds-typography-scale-02);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--vb-text);
+        }
+
+        .nav-cta {
+            background: var(--vb-accent);
+            color: #fff;
+            padding: 0.6rem 1.25rem;
+            border-radius: var(--sds-size-radius-200);
+            font-size: var(--sds-typography-scale-02);
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .nav-cta:hover {
+            background: #0f766e;
+        }
+
+        /* HERO */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 360px;
+            gap: var(--sds-size-space-2400);
+            align-items: start;
+            padding: var(--sds-size-space-2400);
+            background: var(--vb-bg);
+        }
+
+        .hero-content {
+            padding-top: var(--sds-size-space-1600);
+        }
+
+        .hero-breadcrumb {
+            font-size: var(--sds-typography-scale-01);
+            color: var(--vb-text-tertiary);
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: var(--sds-size-space-800);
+        }
+
+        .hero-title {
+            font-size: clamp(2.2rem, 4vw, var(--sds-typography-scale-09));
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            color: var(--vb-text);
+            margin-bottom: var(--sds-size-space-800);
+        }
+
+        .hero-tagline {
+            font-size: var(--sds-typography-scale-04);
+            color: var(--vb-text-secondary);
+            font-weight: 400;
+            line-height: 1.65;
+            margin-bottom: var(--sds-size-space-1200);
+            max-width: 480px;
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: var(--sds-size-space-300);
+            flex-wrap: wrap;
+            margin-bottom: var(--sds-size-space-1200);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.4rem 0.85rem;
+            border-radius: var(--sds-size-radius-400);
+            font-size: var(--sds-typography-scale-01);
+            font-weight: 600;
+        }
+
+        .badge-rating {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .badge-cohort {
+            background: var(--vb-accent-light);
+            color: var(--vb-accent);
+            border: 1px solid var(--vb-accent-mid);
+        }
+
+        .badge-seats {
+            background: #fef2f2;
+            color: #991b1b;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: var(--sds-size-space-600);
+            align-items: center;
+        }
+
+        .btn-primary {
+            background: var(--vb-accent);
+            color: #fff;
+            padding: 0.9rem 2rem;
+            border-radius: var(--sds-size-radius-200);
+            font-size: var(--sds-typography-scale-03);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: #0f766e;
+            transform: translateY(-1px);
+            box-shadow: var(--vb-shadow-md);
+        }
+
+        .btn-outline {
+            color: var(--vb-text);
+            border: 1px solid var(--vb-border-strong);
+            padding: 0.9rem 2rem;
+            border-radius: var(--sds-size-radius-200);
+            font-size: var(--sds-typography-scale-03);
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s;
+            display: inline-block;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--vb-accent);
+            color: var(--vb-accent);
+        }
+
+        /* INSTRUCTOR CARD */
+        .instructor-card {
+            background: var(--vb-surface);
+            border: 1px solid var(--vb-border);
+            border-radius: var(--sds-size-radius-400);
+            padding: var(--sds-size-space-1200);
+            box-shadow: var(--vb-shadow-md);
+            position: sticky;
+            top: 80px;
+        }
+
+        .instructor-avatar-lg {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--vb-accent), #0f766e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--sds-typography-scale-06);
+            font-weight: 700;
+            color: #fff;
+            margin: 0 auto var(--sds-size-space-600);
+        }
+
+        .instructor-card-name {
+            font-size: var(--sds-typography-scale-04);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 0.25rem;
+        }
+
+        .instructor-card-title {
+            font-size: var(--sds-typography-scale-02);
+            color: var(--vb-text-secondary);
+            text-align: center;
+            margin-bottom: var(--sds-size-space-1200);
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--vb-border);
+            margin: var(--sds-size-space-800) 0;
+        }
+
+        .price-display {
+            text-align: center;
+            margin-bottom: var(--sds-size-space-800);
+        }
+
+        .price-amount {
+            font-size: var(--sds-typography-scale-07);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: var(--vb-text);
+        }
+
+        .price-note {
+            font-size: var(--sds-typography-scale-01);
+            color: var(--vb-text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        .enroll-btn {
+            display: block;
+            width: 100%;
+            background: var(--vb-accent);
+            color: #fff;
+            padding: 0.9rem;
+            border-radius: var(--sds-size-radius-200);
+            font-size: var(--sds-typography-scale-03);
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            margin-bottom: var(--sds-size-space-600);
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .enroll-btn:hover {
+            background: #0f766e;
+        }
+
+        .email-field {
+            width: 100%;
+            border: 1px solid var(--vb-border);
+            border-radius: var(--sds-size-radius-200);
+            padding: 0.7rem 0.9rem;
+            font-size: var(--sds-typography-scale-02);
+            font-family: inherit;
+            color: var(--vb-text);
+            background: var(--vb-bg);
+            margin-bottom: var(--sds-size-space-300);
+        }
+
+        .email-field::placeholder {
+            color: var(--vb-text-tertiary);
+        }
+
+        .email-sub-btn {
+            display: block;
+            width: 100%;
+            background: var(--vb-bg-alt);
+            color: var(--vb-text-secondary);
+            padding: 0.7rem;
+            border-radius: var(--sds-size-radius-200);
+            font-size: var(--sds-typography-scale-02);
+            font-weight: 500;
+            text-align: center;
+            border: 1px solid var(--vb-border);
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+
+        .email-sub-btn:hover {
+            border-color: var(--vb-accent);
+            color: var(--vb-accent);
+        }
+
+        .guarantee-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--sds-size-space-200);
+            margin-top: var(--sds-size-space-600);
+            font-size: var(--sds-typography-scale-01);
+            color: var(--vb-text-tertiary);
+        }
+
+        .guarantee-icon {
+            color: var(--vb-accent);
+        }
+
+        /* OUTCOMES */
+        .outcomes {
+            padding: var(--sds-size-space-2400);
+            background: var(--vb-bg-alt);
+            border-top: 1px solid var(--vb-border);
+        }
+
+        .section-eyebrow {
+            font-size: var(--sds-typography-scale-01);
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--vb-accent);
+            margin-bottom: var(--sds-size-space-400);
+        }
+
+        .section-title {
+            font-size: var(--sds-typography-scale-07);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: var(--sds-size-space-1600);
+        }
+
+        .outcomes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--sds-size-space-800);
+        }
+
+        .outcome-card {
+            background: var(--vb-surface);
+            border: 1px solid var(--vb-border);
+            border-radius: var(--sds-size-radius-400);
+            padding: var(--sds-size-space-1200);
+            box-shadow: var(--vb-shadow-sm);
+            transition: all 0.2s;
+        }
+
+        .outcome-card:hover {
+            box-shadow: var(--vb-shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .outcome-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--vb-accent-light);
+            border-radius: var(--sds-size-radius-200);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            margin-bottom: var(--sds-size-space-800);
+        }
+
+        .outcome-title {
+            font-size: var(--sds-typography-scale-04);
+            font-weight: 700;
+            margin-bottom: var(--sds-size-space-300);
+        }
+
+        .outcome-desc {
+            font-size: var(--sds-typography-scale-02);
+            color: var(--vb-text-secondary);
+            line-height: 1.65;
+        }
+
+        /* CURRICULUM */
+        .curriculum {
+            padding: var(--sds-size-space-2400);
+        }
+
+        .accordion-item {
+            background: var(--vb-surface);
+            border: 1px solid var(--vb-border);
+            border-radius: var(--sds-size-radius-200);
+            margin-bottom: var(--sds-size-space-300);
+            overflow: hidden;
+            box-shadow: var(--vb-shadow-sm);
+            transition: box-shadow 0.2s;
+        }
+
+        .accordion-item:hover {
+            box-shadow: var(--vb-shadow-md);
+        }
+
+        .accordion-trigger {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--sds-size-space-800) var(--sds-size-space-1200);
+            cursor: pointer;
+            background: transparent;
+            width: 100%;
+            border: none;
+            color: var(--vb-text);
+            font-family: inherit;
+            text-align: left;
+        }
+
+        .accordion-num {
+            font-size: var(--sds-typography-scale-01);
+            font-weight: 700;
+            color: var(--vb-accent);
+            letter-spacing: 0.05em;
+            margin-right: var(--sds-size-space-600);
+            background: var(--vb-accent-light);
+            padding: 0.2rem 0.5rem;
+            border-radius: var(--sds-size-radius-100);
+        }
+
+        .accordion-title {
+            font-size: var(--sds-typography-scale-03);
+            font-weight: 600;
+            flex: 1;
+        }
+
+        .accordion-chevron {
+            color: var(--vb-text-tertiary);
+            font-size: var(--sds-typography-scale-04);
+            transition: transform 0.2s;
+        }
+
+        .accordion-item.open .accordion-chevron {
+            transform: rotate(180deg);
+            color: var(--vb-accent);
+        }
+
+        .accordion-body {
+            display: none;
+            padding: var(--sds-size-space-800) var(--sds-size-space-1200);
+            background: var(--vb-bg);
+            border-top: 1px solid var(--vb-border);
+        }
+
+        .accordion-item.open .accordion-body {
+            display: block;
+        }
+
+        .accordion-body p {
+            font-size: var(--sds-typography-scale-02);
+            color: var(--vb-text-secondary);
+            line-height: 1.7;
+        }
+
+        /* INSTRUCTOR */
+        .instructor-section {
+            padding: var(--sds-size-space-2400);
+            background: var(--vb-bg-alt);
+            border-top: 1px solid var(--vb-border);
+        }
+
+        .instructor-layout {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: var(--sds-size-space-1600);
+            align-items: start;
+        }
+
+        .instructor-avatar-xl {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--vb-accent), #0f766e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--sds-typography-scale-07);
+            font-weight: 700;
+            color: #fff;
+            flex-shrink: 0;
+        }
+
+        .instructor-name {
+            font-size: var(--sds-typography-scale-06);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.25rem;
+        }
+
+        .instructor-role {
+            font-size: var(--sds-typography-scale-03);
+            color: var(--vb-accent);
+            font-weight: 500;
+            margin-bottom: var(--sds-size-space-800);
+        }
+
+        .instructor-bio {
+            font-size: var(--sds-typography-scale-03);
+            color: var(--vb-text-secondary);
+            line-height: 1.75;
+            margin-bottom: var(--sds-size-space-1200);
+        }
+
+        .logos-label {
+            font-size: var(--sds-typography-scale-01);
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--vb-text-tertiary);
+            margin-bottom: var(--sds-size-space-600);
+        }
+
+        .logos-row {
+            display: flex;
+            gap: var(--sds-size-space-800);
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo-chip {
+            font-size: var(--sds-typography-scale-02);
+            font-weight: 600;
+            color: var(--vb-text-secondary);
+            background: var(--vb-surface);
+            border: 1px solid var(--vb-border);
+            padding: 0.4rem 1rem;
+            border-radius: var(--sds-size-radius-200);
+        }
+
+        /* REVIEWS */
+        .reviews {
+            padding: var(--sds-size-space-2400);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--sds-size-space-800);
+        }
+
+        .review-card {
+            background: var(--vb-surface);
+            border: 1px solid var(--vb-border);
+            border-radius: var(--sds-size-radius-400);
+            padding: var(--sds-size-space-1200);
+            box-shadow: var(--vb-shadow-sm);
+        }
+
+        .review-stars {
+            color: #f59e0b;
+            font-size: var(--sds-typography-scale-03);
+            margin-bottom: var(--sds-size-space-600);
+        }
+
+        .review-quote-icon {
+            font-size: 2rem;
+            color: var(--vb-accent);
+            opacity: 0.4;
+            line-height: 1;
+            margin-bottom: var(--sds-size-space-400);
+            font-family: Georgia, serif;
+        }
+
+        .review-text {
+            font-size: var(--sds-typography-scale-02);
+            color: var(--vb-text);
+            line-height: 1.7;
+            margin-bottom: var(--sds-size-space-800);
+        }
+
+        .reviewer-info {
+            display: flex;
+            align-items: center;
+            gap: var(--sds-size-space-400);
+        }
+
+        .reviewer-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--vb-accent-mid);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--sds-typography-scale-02);
+            font-weight: 700;
+            color: var(--vb-accent);
+            flex-shrink: 0;
+        }
+
+        .reviewer-name {
+            font-size: var(--sds-typography-scale-02);
+            font-weight: 700;
+        }
+
+        .reviewer-role {
+            font-size: var(--sds-typography-scale-01);
+            color: var(--vb-text-secondary);
+        }
+
+        /* FAQ */
+        .faq {
+            padding: var(--sds-size-space-2400);
+            background: var(--vb-bg-alt);
+            border-top: 1px solid var(--vb-border);
+        }
+
+        /* FOOTER CTA */
+        .footer-cta {
+            padding: var(--sds-size-space-2400);
+            background: var(--vb-accent-light);
+            border-top: 1px solid var(--vb-accent-mid);
+            text-align: center;
+        }
+
+        .footer-cta-title {
+            font-size: var(--sds-typography-scale-08);
+            font-weight: 800;
+            color: var(--vb-text);
+            letter-spacing: -0.03em;
+            margin-bottom: var(--sds-size-space-600);
+        }
+
+        .footer-cta-sub {
+            font-size: var(--sds-typography-scale-04);
+            color: var(--vb-text-secondary);
+            margin-bottom: var(--sds-size-space-1600);
+        }
+
+        .footer {
+            padding: var(--sds-size-space-1200) var(--sds-size-space-2400);
+            background: var(--vb-surface);
+            border-top: 1px solid var(--vb-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-copy {
+            font-size: var(--sds-typography-scale-01);
+            color: var(--vb-text-tertiary);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: var(--sds-size-space-800);
+        }
+
+        .footer-links a {
+            font-size: var(--sds-typography-scale-01);
+            color: var(--vb-text-tertiary);
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: var(--vb-accent);
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="nav">
+        <div class="nav-logo">xinran<span>.</span>ma</div>
+        <div class="nav-links">
+            <a href="#outcomes">Outcomes</a>
+            <a href="#curriculum">Curriculum</a>
+            <a href="#instructor">Instructor</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#faq">FAQ</a>
+        </div>
+        <a href="#enroll" class="nav-cta">Enroll Now</a>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-breadcrumb">All Courses → Design → AI</div>
+            <h1 class="hero-title">AI for Product Designers</h1>
+            <p class="hero-tagline">Master the integration of LLMs, generative workflows, and agentic UX into your
+                design process. A 10-day intensive for senior designers.</p>
+            <div class="hero-badges">
+                <span class="badge badge-rating">★ 4.7 · 140 reviews</span>
+                <span class="badge badge-cohort">📅 Mar 10–20, 2026</span>
+                <span class="badge badge-seats">🔥 Limited to 50 seats</span>
+            </div>
+            <div class="hero-actions">
+                <a href="#enroll" class="btn-primary">Enroll — $999</a>
+                <a href="#curriculum" class="btn-outline">View Syllabus</a>
+            </div>
+        </div>
+
+        <div class="instructor-card" id="enroll">
+            <div class="instructor-avatar-lg">X</div>
+            <div class="instructor-card-name">Xinran Ma</div>
+            <div class="instructor-card-title">Staff Product Designer · AI Researcher</div>
+            <div class="divider"></div>
+            <div class="price-display">
+                <div class="price-amount">$999</div>
+                <div class="price-note">USD · One-time · Lifetime access</div>
+            </div>
+            <button class="enroll-btn">Enroll in Next Cohort →</button>
+            <input class="email-field" type="email" placeholder="your@email.com">
+            <button class="email-sub-btn">Notify me about future cohorts</button>
+            <div class="guarantee-row">
+                <span class="guarantee-icon">✓</span>
+                <span>14-day money-back guarantee</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="outcomes" id="outcomes">
+        <div class="section-eyebrow">What You'll Achieve</div>
+        <h2 class="section-title">Three core outcomes</h2>
+        <div class="outcomes-grid">
+            <div class="outcome-card">
+                <div class="outcome-icon">⚡</div>
+                <div class="outcome-title">Ship AI Features Confidently</div>
+                <p class="outcome-desc">Go beyond simple chat interfaces. Learn to design complex, multi-modal AI
+                    interactions that ship to production.</p>
+            </div>
+            <div class="outcome-card">
+                <div class="outcome-icon">🧠</div>
+                <div class="outcome-title">Master AI Workflows</div>
+                <p class="outcome-desc">Automate user research analysis and UI generation using custom-trained GPTs and
+                    agentic pipelines.</p>
+            </div>
+            <div class="outcome-card">
+                <div class="outcome-icon">🎯</div>
+                <div class="outcome-title">Lead Design Strategy</div>
+                <p class="outcome-desc">Position yourself as the voice of authority for AI implementation in your
+                    product organization.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="curriculum" id="curriculum">
+        <div class="section-eyebrow">Curriculum</div>
+        <h2 class="section-title">5 Modules · 10 Days</h2>
+        <div class="accordion-list">
+            <div class="accordion-item open">
+                <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                    <span class="accordion-num">01</span>
+                    <span class="accordion-title">Foundations of LLMs for Designers</span>
+                    <span class="accordion-chevron">⌄</span>
+                </button>
+                <div class="accordion-body">
+                    <p>Understand how large language models work at a conceptual level — tokens, context windows,
+                        temperature, and system prompts. Learn to speak the language of your engineering partners.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                    <span class="accordion-num">02</span>
+                    <span class="accordion-title">The Agentic UX Framework</span>
+                    <span class="accordion-chevron">⌄</span>
+                </button>
+                <div class="accordion-body">
+                    <p>Design for AI agents that act autonomously on behalf of users. Learn the principles of trust,
+                        transparency, and control that govern agentic interfaces.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                    <span class="accordion-num">03</span>
+                    <span class="accordion-title">Prompt Engineering for Visual Systems</span>
+                    <span class="accordion-chevron">⌄</span>
+                </button>
+                <div class="accordion-body">
+                    <p>Build structured prompts that generate consistent UI components, design tokens, and visual
+                        assets. Create prompt libraries your team can reuse.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                    <span class="accordion-num">04</span>
+                    <span class="accordion-title">AI-First Prototyping Tools</span>
+                    <span class="accordion-chevron">⌄</span>
+                </button>
+                <div class="accordion-body">
+                    <p>Hands-on with v0, Cursor, Stitch, and custom GPT workflows. Build a working prototype from
+                        scratch using AI-assisted design in under 2 hours.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                    <span class="accordion-num">05</span>
+                    <span class="accordion-title">Ethics, Bias & The Future of Work</span>
+                    <span class="accordion-chevron">⌄</span>
+                </button>
+                <div class="accordion-body">
+                    <p>Navigate the ethical dimensions of AI design: bias in training data, accessibility implications,
+                        and the evolving role of the designer in an AI-augmented product team.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="instructor-section" id="instructor">
+        <div class="section-eyebrow">Your Instructor</div>
+        <h2 class="section-title">Meet Xinran</h2>
+        <div class="instructor-layout">
+            <div class="instructor-avatar-xl">X</div>
+            <div>
+                <div class="instructor-name">Xinran Ma</div>
+                <div class="instructor-role">Staff Product Designer · AI Researcher</div>
+                <p class="instructor-bio">Xinran is a Staff Product Designer with over a decade of experience at
+                    world-class technology companies. She currently leads AI design initiatives, bridging the gap
+                    between engineering and human-centric experiences. Her work has shipped to millions of users across
+                    enterprise and consumer products.</p>
+                <div class="logos-label">Industry Experience</div>
+                <div class="logos-row">
+                    <span class="logo-chip">Amazon</span>
+                    <span class="logo-chip">Workday</span>
+                    <span class="logo-chip">Pratt Institute</span>
+                    <span class="logo-chip">City of Vancouver</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reviews" id="reviews">
+        <div class="section-eyebrow">Student Reviews</div>
+        <h2 class="section-title">4.7 ★ · 140 Reviews</h2>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <div class="review-quote-icon">"</div>
+                <p class="review-text">The most comprehensive AI curriculum I've found. Xinran doesn't just show you
+                    tools; she teaches you how to think about AI as a design material.</p>
+                <div class="reviewer-info">
+                    <div class="reviewer-avatar">D</div>
+                    <div>
+                        <div class="reviewer-name">David Chen</div>
+                        <div class="reviewer-role">Design Manager @ Meta</div>
+                    </div>
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <div class="review-quote-icon">"</div>
+                <p class="review-text">I went from being intimidated by LLMs to leading our company's AI design sprint
+                    in just two weeks. Highly recommended.</p>
+                <div class="reviewer-info">
+                    <div class="reviewer-avatar">S</div>
+                    <div>
+                        <div class="reviewer-name">Sarah Jenkins</div>
+                        <div class="reviewer-role">Senior UX Designer @ Airbnb</div>
+                    </div>
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <div class="review-quote-icon">"</div>
+                <p class="review-text">The frameworks provided are immediately applicable. I shipped my first AI-driven
+                    prototype within two weeks of finishing the course.</p>
+                <div class="reviewer-info">
+                    <div class="reviewer-avatar">M</div>
+                    <div>
+                        <div class="reviewer-name">Marc Orso</div>
+                        <div class="reviewer-role">Design Lead @ Notion</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq" id="faq">
+        <div class="section-eyebrow">FAQ</div>
+        <h2 class="section-title">Frequently Asked</h2>
+        <div class="accordion-list">
+            <div class="accordion-item">
+                <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                    <span class="accordion-title">Is this course for beginners?</span>
+                    <span class="accordion-chevron">⌄</span>
+                </button>
+                <div class="accordion-body">
+                    <p>No — this is an intermediate-to-advanced course. We assume at least 3 years of product design
+                        experience and familiarity with Figma.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                    <span class="accordion-title">What software will I need?</span>
+                    <span class="accordion-chevron">⌄</span>
+                </button>
+                <div class="accordion-body">
+                    <p>Figma, a ChatGPT Plus subscription, and a Midjourney subscription for the duration of the course.
+                        All other tools are free or have free tiers.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                    <span class="accordion-title">What if I miss a live session?</span>
+                    <span class="accordion-chevron">⌄</span>
+                </button>
+                <div class="accordion-body">
+                    <p>All sessions are recorded and uploaded within 2 hours. Recordings are available indefinitely.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                    <span class="accordion-title">Is there a certificate?</span>
+                    <span class="accordion-chevron">⌄</span>
+                </button>
+                <div class="accordion-body">
+                    <p>Yes — a verifiable Maven certificate upon completion, shareable directly to LinkedIn.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="footer-cta">
+        <h2 class="footer-cta-title">Ready to lead with AI?</h2>
+        <p class="footer-cta-sub">The future of design isn't automated — it's augmented. Join the next cohort.</p>
+        <a href="#enroll" class="btn-primary">Enroll Now — $999</a>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-copy">© 2026 Xinran Ma Studio. All rights reserved.</div>
+        <div class="footer-links">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Contact</a>
+        </div>
+    </footer>
+
+    <script>
+        function toggleAccordion(trigger) {
+            const item = trigger.closest('.accordion-item');
+            item.classList.toggle('open');
+        }
+    </script>
+</body>
+
+</html>

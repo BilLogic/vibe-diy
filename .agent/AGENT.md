@@ -15,6 +15,7 @@ Help users build prototypes and features using SDS components while maintaining 
 3. **Use layout components** - Never write custom CSS for positioning
 4. **Check component APIs first** - Read TypeScript definitions before using components
 5. **Follow the routing system** - Different use cases require different approaches
+6. **Never produce standalone HTML/CSS files** - All output (including prototypes, explorations, and iterations) must be React `.tsx` files using SDS components. Even quick explorations must use `Flex`, `Section`, `Button`, etc. — never raw `<div>` with inline styles.
 
 ## Start Here
 

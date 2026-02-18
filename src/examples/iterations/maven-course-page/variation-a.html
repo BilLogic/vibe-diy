@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Variation A: Bold Editorial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* SDS Tokens */
+:root {
+  --sds-color-gray-100: #f5f5f5;
+  --sds-color-gray-900: #1e1e1e;
+  --sds-color-brand-800: #2c2c2c;
+  --sds-color-brand-100: #f5f5f5;
+  --sds-color-slate-700: #5a5a5a;
+  --sds-color-slate-300: #cdcdcd;
+  --sds-color-white-1000: #ffffff;
+  --sds-size-space-200: 0.5rem;
+  --sds-size-space-300: 0.75rem;
+  --sds-size-space-400: 1rem;
+  --sds-size-space-600: 1.5rem;
+  --sds-size-space-800: 2rem;
+  --sds-size-space-1200: 3rem;
+  --sds-size-space-1600: 4rem;
+  --sds-size-space-2400: 6rem;
+  --sds-size-radius-100: 0.25rem;
+  --sds-size-radius-200: 0.5rem;
+  --sds-size-radius-400: 1rem;
+  --sds-typography-scale-01: 0.75rem;
+  --sds-typography-scale-02: 0.875rem;
+  --sds-typography-scale-03: 1rem;
+  --sds-typography-scale-04: 1.25rem;
+  --sds-typography-scale-05: 1.5rem;
+  --sds-typography-scale-06: 2rem;
+  --sds-typography-scale-07: 2.5rem;
+  --sds-typography-scale-08: 3rem;
+  --sds-typography-scale-09: 4rem;
+  --sds-typography-scale-10: 4.5rem;
+  /* Variation A specific */
+  --va-bg: #0a1f20;
+  --va-bg-2: #0e2b2c;
+  --va-bg-3: #122f30;
+  --va-accent: #1dcdb3;
+  --va-accent-dim: #0f9e8a;
+  --va-text: #ffffff;
+  --va-text-secondary: rgba(255,255,255,0.65);
+  --va-border: rgba(255,255,255,0.1);
+  --va-card: rgba(255,255,255,0.05);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', sans-serif; background: var(--va-bg); color: var(--va-text); line-height: 1.6; }
+
+/* NAV */
+.nav { display: flex; align-items: center; justify-content: space-between; padding: var(--sds-size-space-600) var(--sds-size-space-2400); border-bottom: 1px solid var(--va-border); position: sticky; top: 0; background: rgba(10,31,32,0.92); backdrop-filter: blur(12px); z-index: 100; }
+.nav-logo { font-size: var(--sds-typography-scale-04); font-weight: 700; color: var(--va-accent); letter-spacing: -0.02em; }
+.nav-links { display: flex; gap: var(--sds-size-space-1200); }
+.nav-links a { color: var(--va-text-secondary); text-decoration: none; font-size: var(--sds-typography-scale-02); font-weight: 500; transition: color 0.2s; }
+.nav-links a:hover { color: var(--va-text); }
+.nav-cta { background: var(--va-accent); color: #0a1f20; padding: 0.6rem 1.25rem; border-radius: var(--sds-size-radius-200); font-size: var(--sds-typography-scale-02); font-weight: 700; text-decoration: none; transition: background 0.2s; }
+.nav-cta:hover { background: #25e8cc; }
+
+/* HERO */
+.hero { display: grid; grid-template-columns: 1fr 380px; gap: var(--sds-size-space-2400); align-items: center; padding: var(--sds-size-space-2400) var(--sds-size-space-2400); min-height: 88vh; background: linear-gradient(135deg, var(--va-bg) 0%, var(--va-bg-2) 100%); position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; top: -200px; right: 200px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(29,205,179,0.08) 0%, transparent 70%); pointer-events: none; }
+.hero-eyebrow { display: flex; align-items: center; gap: var(--sds-size-space-300); margin-bottom: var(--sds-size-space-800); }
+.eyebrow-badge { background: rgba(29,205,179,0.12); border: 1px solid rgba(29,205,179,0.3); color: var(--va-accent); padding: 0.3rem 0.75rem; border-radius: var(--sds-size-radius-400); font-size: var(--sds-typography-scale-01); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+.hero-title { font-size: clamp(2.5rem, 5vw, var(--sds-typography-scale-10)); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: var(--sds-size-space-800); }
+.hero-title span { color: var(--va-accent); }
+.hero-tagline { font-size: var(--sds-typography-scale-05); color: var(--va-text-secondary); font-weight: 300; line-height: 1.5; margin-bottom: var(--sds-size-space-1200); max-width: 520px; }
+.hero-meta { display: flex; align-items: center; gap: var(--sds-size-space-800); margin-bottom: var(--sds-size-space-1600); }
+.rating { display: flex; align-items: center; gap: var(--sds-size-space-200); }
+.stars { color: #fbbf24; font-size: var(--sds-typography-scale-03); }
+.rating-text { font-size: var(--sds-typography-scale-02); color: var(--va-text-secondary); }
+.cohort-badge { background: var(--va-card); border: 1px solid var(--va-border); padding: 0.4rem 0.9rem; border-radius: var(--sds-size-radius-200); font-size: var(--sds-typography-scale-02); color: var(--va-text-secondary); }
+.hero-actions { display: flex; gap: var(--sds-size-space-600); align-items: center; }
+.btn-primary { background: var(--va-accent); color: #0a1f20; padding: 0.9rem 2rem; border-radius: var(--sds-size-radius-200); font-size: var(--sds-typography-scale-03); font-weight: 700; text-decoration: none; transition: all 0.2s; display: inline-block; }
+.btn-primary:hover { background: #25e8cc; transform: translateY(-1px); }
+.btn-ghost { color: var(--va-text); border: 1px solid var(--va-border); padding: 0.9rem 2rem; border-radius: var(--sds-size-radius-200); font-size: var(--sds-typography-scale-03); font-weight: 500; text-decoration: none; transition: all 0.2s; display: inline-block; }
+.btn-ghost:hover { border-color: var(--va-accent); color: var(--va-accent); }
+
+/* HERO CARD */
+.hero-card { background: var(--va-bg-3); border: 1px solid var(--va-border); border-radius: var(--sds-size-radius-400); padding: var(--sds-size-space-1600); position: relative; }
+.hero-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--va-accent), transparent); border-radius: var(--sds-size-radius-400) var(--sds-size-radius-400) 0 0; }
+.instructor-avatar { width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, var(--va-accent), var(--va-accent-dim)); display: flex; align-items: center; justify-content: center; font-size: var(--sds-typography-scale-06); font-weight: 700; color: #0a1f20; margin-bottom: var(--sds-size-space-600); }
+.instructor-name { font-size: var(--sds-typography-scale-04); font-weight: 700; margin-bottom: var(--sds-size-space-100); }
+.instructor-title { font-size: var(--sds-typography-scale-02); color: var(--va-text-secondary); margin-bottom: var(--sds-size-space-1200); }
+.price-block { margin-bottom: var(--sds-size-space-800); }
+.price { font-size: var(--sds-typography-scale-07); font-weight: 800; letter-spacing: -0.03em; }
+.price-sub { font-size: var(--sds-typography-scale-02); color: var(--va-text-secondary); margin-top: 0.25rem; }
+.enroll-btn { display: block; width: 100%; background: var(--va-accent); color: #0a1f20; padding: 1rem; border-radius: var(--sds-size-radius-200); font-size: var(--sds-typography-scale-03); font-weight: 700; text-align: center; text-decoration: none; margin-bottom: var(--sds-size-space-600); transition: background 0.2s; border: none; cursor: pointer; }
+.enroll-btn:hover { background: #25e8cc; }
+.email-row { display: flex; gap: var(--sds-size-space-200); }
+.email-input { flex: 1; background: rgba(255,255,255,0.06); border: 1px solid var(--va-border); border-radius: var(--sds-size-radius-200); padding: 0.65rem 0.9rem; color: var(--va-text); font-size: var(--sds-typography-scale-02); font-family: inherit; }
+.email-input::placeholder { color: var(--va-text-secondary); }
+.email-btn { background: var(--va-card); border: 1px solid var(--va-border); border-radius: var(--sds-size-radius-200); padding: 0.65rem 0.9rem; color: var(--va-text-secondary); cursor: pointer; font-size: var(--sds-typography-scale-02); font-family: inherit; transition: all 0.2s; white-space: nowrap; }
+.email-btn:hover { border-color: var(--va-accent); color: var(--va-accent); }
+.guarantee { display: flex; align-items: center; gap: var(--sds-size-space-200); margin-top: var(--sds-size-space-600); font-size: var(--sds-typography-scale-01); color: var(--va-text-secondary); }
+.guarantee-icon { color: var(--va-accent); }
+
+/* OUTCOMES */
+.outcomes { padding: var(--sds-size-space-2400); background: var(--va-bg-2); border-top: 1px solid var(--va-border); border-bottom: 1px solid var(--va-border); }
+.section-label { font-size: var(--sds-typography-scale-01); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--va-accent); margin-bottom: var(--sds-size-space-800); }
+.outcomes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sds-size-space-800); }
+.outcome-card { background: var(--va-card); border: 1px solid var(--va-border); border-radius: var(--sds-size-radius-400); padding: var(--sds-size-space-1200); transition: border-color 0.2s; }
+.outcome-card:hover { border-color: rgba(29,205,179,0.3); }
+.outcome-icon { font-size: 1.75rem; margin-bottom: var(--sds-size-space-600); }
+.outcome-title { font-size: var(--sds-typography-scale-04); font-weight: 700; margin-bottom: var(--sds-size-space-300); }
+.outcome-desc { font-size: var(--sds-typography-scale-02); color: var(--va-text-secondary); line-height: 1.6; }
+
+/* CURRICULUM */
+.curriculum { padding: var(--sds-size-space-2400); }
+.section-header { margin-bottom: var(--sds-size-space-1600); }
+.section-title { font-size: var(--sds-typography-scale-07); font-weight: 800; letter-spacing: -0.02em; }
+.accordion-item { border: 1px solid var(--va-border); border-radius: var(--sds-size-radius-200); margin-bottom: var(--sds-size-space-300); overflow: hidden; transition: border-color 0.2s; }
+.accordion-item:hover { border-color: rgba(29,205,179,0.3); }
+.accordion-trigger { display: flex; align-items: center; justify-content: space-between; padding: var(--sds-size-space-800) var(--sds-size-space-1200); cursor: pointer; background: var(--va-card); width: 100%; border: none; color: var(--va-text); font-family: inherit; text-align: left; }
+.accordion-num { font-size: var(--sds-typography-scale-01); font-weight: 700; color: var(--va-accent); letter-spacing: 0.05em; margin-right: var(--sds-size-space-600); font-variant-numeric: tabular-nums; }
+.accordion-title { font-size: var(--sds-typography-scale-03); font-weight: 600; flex: 1; }
+.accordion-chevron { color: var(--va-accent); font-size: var(--sds-typography-scale-04); transition: transform 0.2s; }
+.accordion-item.open .accordion-chevron { transform: rotate(180deg); }
+.accordion-body { display: none; padding: var(--sds-size-space-800) var(--sds-size-space-1200); background: rgba(255,255,255,0.02); border-top: 1px solid var(--va-border); }
+.accordion-item.open .accordion-body { display: block; }
+.accordion-body p { font-size: var(--sds-typography-scale-02); color: var(--va-text-secondary); line-height: 1.7; }
+
+/* INSTRUCTOR */
+.instructor-section { padding: var(--sds-size-space-2400); background: var(--va-bg-2); border-top: 1px solid var(--va-border); }
+.instructor-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sds-size-space-2400); align-items: start; }
+.instructor-bio-name { font-size: var(--sds-typography-scale-06); font-weight: 800; letter-spacing: -0.02em; margin-bottom: var(--sds-size-space-300); }
+.instructor-bio-role { font-size: var(--sds-typography-scale-03); color: var(--va-accent); font-weight: 500; margin-bottom: var(--sds-size-space-1200); }
+.instructor-quote { font-size: var(--sds-typography-scale-04); font-weight: 300; color: var(--va-text-secondary); line-height: 1.6; font-style: italic; border-left: 3px solid var(--va-accent); padding-left: var(--sds-size-space-800); margin-bottom: var(--sds-size-space-1200); }
+.instructor-bio-text { font-size: var(--sds-typography-scale-02); color: var(--va-text-secondary); line-height: 1.8; }
+.logos-label { font-size: var(--sds-typography-scale-01); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--va-text-secondary); margin-bottom: var(--sds-size-space-800); }
+.logos-row { display: flex; gap: var(--sds-size-space-1200); align-items: center; flex-wrap: wrap; }
+.logo-pill { background: var(--va-card); border: 1px solid var(--va-border); border-radius: var(--sds-size-radius-200); padding: 0.5rem 1.25rem; font-size: var(--sds-typography-scale-02); font-weight: 600; color: var(--va-text-secondary); }
+
+/* REVIEWS */
+.reviews { padding: var(--sds-size-space-2400); }
+.reviews-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sds-size-space-800); }
+.review-card { background: var(--va-card); border: 1px solid var(--va-border); border-radius: var(--sds-size-radius-400); padding: var(--sds-size-space-1600); position: relative; }
+.review-quote-mark { font-size: 5rem; line-height: 1; color: var(--va-accent); opacity: 0.3; position: absolute; top: var(--sds-size-space-800); left: var(--sds-size-space-1200); font-family: Georgia, serif; }
+.review-text { font-size: var(--sds-typography-scale-04); font-weight: 300; line-height: 1.6; color: var(--va-text); margin-bottom: var(--sds-size-space-1200); padding-top: var(--sds-size-space-1600); }
+.reviewer-name { font-size: var(--sds-typography-scale-03); font-weight: 700; }
+.reviewer-role { font-size: var(--sds-typography-scale-02); color: var(--va-text-secondary); }
+
+/* FAQ */
+.faq { padding: var(--sds-size-space-2400); background: var(--va-bg-2); border-top: 1px solid var(--va-border); }
+
+/* FOOTER CTA */
+.footer-cta { padding: var(--sds-size-space-2400); background: var(--va-accent); text-align: center; }
+.footer-cta-title { font-size: var(--sds-typography-scale-08); font-weight: 800; color: #0a1f20; letter-spacing: -0.03em; margin-bottom: var(--sds-size-space-600); }
+.footer-cta-sub { font-size: var(--sds-typography-scale-04); color: rgba(10,31,32,0.7); margin-bottom: var(--sds-size-space-1600); }
+.btn-dark { background: #0a1f20; color: var(--va-accent); padding: 1rem 2.5rem; border-radius: var(--sds-size-radius-200); font-size: var(--sds-typography-scale-03); font-weight: 700; text-decoration: none; display: inline-block; transition: all 0.2s; }
+.btn-dark:hover { background: var(--va-bg-2); }
+.footer { padding: var(--sds-size-space-1200) var(--sds-size-space-2400); background: var(--va-bg); border-top: 1px solid var(--va-border); display: flex; justify-content: space-between; align-items: center; }
+.footer-copy { font-size: var(--sds-typography-scale-01); color: var(--va-text-secondary); }
+.footer-links { display: flex; gap: var(--sds-size-space-800); }
+.footer-links a { font-size: var(--sds-typography-scale-01); color: var(--va-text-secondary); text-decoration: none; }
+.footer-links a:hover { color: var(--va-accent); }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-logo">xinran.ma</div>
+  <div class="nav-links">
+    <a href="#outcomes">Outcomes</a>
+    <a href="#curriculum">Curriculum</a>
+    <a href="#instructor">Instructor</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#faq">FAQ</a>
+  </div>
+  <a href="#enroll" class="nav-cta">Enroll Now</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="eyebrow-badge">Cohort-Based · Mar 2026</span>
+    </div>
+    <h1 class="hero-title">AI for<br><span>Product</span><br>Designers</h1>
+    <p class="hero-tagline">Master the integration of LLMs, generative workflows, and agentic UX into your design process. A 10-day intensive for senior designers.</p>
+    <div class="hero-meta">
+      <div class="rating">
+        <span class="stars">★★★★★</span>
+        <span class="rating-text">4.7 · 140 reviews</span>
+      </div>
+      <span class="cohort-badge">Mar 10 – 20, 2026</span>
+    </div>
+    <div class="hero-actions">
+      <a href="#enroll" class="btn-primary">Enroll — $999</a>
+      <a href="#curriculum" class="btn-ghost">View Syllabus</a>
+    </div>
+  </div>
+
+  <div class="hero-card" id="enroll">
+    <div class="instructor-avatar">X</div>
+    <div class="instructor-name">Xinran Ma</div>
+    <div class="instructor-title">Staff Product Designer · AI Researcher</div>
+    <div class="price-block">
+      <div class="price">$999</div>
+      <div class="price-sub">USD · One-time · Lifetime access</div>
+    </div>
+    <button class="enroll-btn">Enroll in Next Cohort</button>
+    <div class="email-row">
+      <input class="email-input" type="email" placeholder="your@email.com">
+      <button class="email-btn">Notify me</button>
+    </div>
+    <div class="guarantee">
+      <span class="guarantee-icon">✦</span>
+      <span>14-day money-back guarantee · Limited to 50 seats</span>
+    </div>
+  </div>
+</section>
+
+<section class="outcomes" id="outcomes">
+  <div class="section-label">What You'll Achieve</div>
+  <div class="outcomes-grid">
+    <div class="outcome-card">
+      <div class="outcome-icon">⚡</div>
+      <div class="outcome-title">Ship AI Features Confidently</div>
+      <p class="outcome-desc">Go beyond simple chat interfaces. Learn to design complex, multi-modal AI interactions that ship.</p>
+    </div>
+    <div class="outcome-card">
+      <div class="outcome-icon">🧠</div>
+      <div class="outcome-title">Master AI Workflows</div>
+      <p class="outcome-desc">Automate user research analysis and UI generation using custom-trained GPTs and agentic pipelines.</p>
+    </div>
+    <div class="outcome-card">
+      <div class="outcome-icon">🎯</div>
+      <div class="outcome-title">Lead Design Strategy</div>
+      <p class="outcome-desc">Position yourself as the voice of authority for AI implementation in your product organization.</p>
+    </div>
+  </div>
+</section>
+
+<section class="curriculum" id="curriculum">
+  <div class="section-header">
+    <div class="section-label">Curriculum</div>
+    <h2 class="section-title">5 Modules.<br>10 Days.</h2>
+  </div>
+  <div class="accordion-list">
+    <div class="accordion-item open">
+      <button class="accordion-trigger" onclick="toggleAccordion(this)">
+        <span class="accordion-num">01</span>
+        <span class="accordion-title">Foundations of LLMs for Designers</span>
+        <span class="accordion-chevron">⌄</span>
+      </button>
+      <div class="accordion-body"><p>Understand how large language models work at a conceptual level — tokens, context windows, temperature, and system prompts. Learn to speak the language of your engineering partners and make informed design decisions around AI capabilities and constraints.</p></div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-trigger" onclick="toggleAccordion(this)">
+        <span class="accordion-num">02</span>
+        <span class="accordion-title">The Agentic UX Framework</span>
+        <span class="accordion-chevron">⌄</span>
+      </button>
+      <div class="accordion-body"><p>Design for AI agents that act autonomously on behalf of users. Learn the principles of trust, transparency, and control that govern agentic interfaces — and how to prototype them effectively.</p></div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-trigger" onclick="toggleAccordion(this)">
+        <span class="accordion-num">03</span>
+        <span class="accordion-title">Prompt Engineering for Visual Systems</span>
+        <span class="accordion-chevron">⌄</span>
+      </button>
+      <div class="accordion-body"><p>Build structured prompts that generate consistent UI components, design tokens, and visual assets. Learn to create prompt libraries that your team can reuse across projects.</p></div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-trigger" onclick="toggleAccordion(this)">
+        <span class="accordion-num">04</span>
+        <span class="accordion-title">AI-First Prototyping Tools</span>
+        <span class="accordion-chevron">⌄</span>
+      </button>
+      <div class="accordion-body"><p>Hands-on with the latest AI prototyping tools: v0, Cursor, Stitch, and custom GPT workflows. Build a working prototype from scratch using AI-assisted design in under 2 hours.</p></div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-trigger" onclick="toggleAccordion(this)">
+        <span class="accordion-num">05</span>
+        <span class="accordion-title">Ethics, Bias & The Future of Work</span>
+        <span class="accordion-chevron">⌄</span>
+      </button>
+      <div class="accordion-body"><p>Navigate the ethical dimensions of AI design: bias in training data, accessibility implications, and the evolving role of the designer in an AI-augmented product team.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="instructor-section" id="instructor">
+  <div class="section-label">Your Instructor</div>
+  <div class="instructor-grid">
+    <div>
+      <h2 class="instructor-bio-name">Xinran Ma</h2>
+      <div class="instructor-bio-role">Staff Product Designer · AI Researcher</div>
+      <blockquote class="instructor-quote">"Design is no longer just about pixels; it's about choreographing intelligence. My goal is to equip you with the mental models to lead this transition."</blockquote>
+      <p class="instructor-bio-text">Xinran is a Staff Product Designer with over a decade of experience at world-class technology companies. She currently leads AI design initiatives, bridging the gap between engineering and human-centric experiences. Her work has shipped to millions of users across enterprise and consumer products.</p>
+    </div>
+    <div>
+      <div class="logos-label">Industry Experience</div>
+      <div class="logos-row">
+        <span class="logo-pill">Amazon</span>
+        <span class="logo-pill">Workday</span>
+        <span class="logo-pill">Pratt Institute</span>
+        <span class="logo-pill">City of Vancouver</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="section-header">
+    <div class="section-label">Student Reviews</div>
+    <h2 class="section-title">4.7 ★ · 140 Reviews</h2>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-quote-mark">"</div>
+      <p class="review-text">The most comprehensive AI curriculum I've found. Xinran doesn't just show you tools; she teaches you how to think about AI as a design material.</p>
+      <div class="reviewer-name">David Chen</div>
+      <div class="reviewer-role">Design Manager @ Meta</div>
+    </div>
+    <div class="review-card">
+      <div class="review-quote-mark">"</div>
+      <p class="review-text">I went from being intimidated by LLMs to leading our company's AI design sprint in just two weeks. Highly recommended for any senior designer.</p>
+      <div class="reviewer-name">Sarah Jenkins</div>
+      <div class="reviewer-role">Senior UX Designer @ Airbnb</div>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="section-label">FAQ</div>
+  <h2 class="section-title" style="font-size: var(--sds-typography-scale-07); font-weight: 800; letter-spacing: -0.02em; margin-bottom: var(--sds-size-space-1600);">Frequently Asked</h2>
+  <div class="accordion-list">
+    <div class="accordion-item">
+      <button class="accordion-trigger" onclick="toggleAccordion(this)">
+        <span class="accordion-title">Is this course for beginners?</span>
+        <span class="accordion-chevron">⌄</span>
+      </button>
+      <div class="accordion-body"><p>No — this is an intermediate-to-advanced course. We assume at least 3 years of product design experience and familiarity with Figma. If you're just starting out, we recommend building that foundation first.</p></div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-trigger" onclick="toggleAccordion(this)">
+        <span class="accordion-title">What software will I need?</span>
+        <span class="accordion-chevron">⌄</span>
+      </button>
+      <div class="accordion-body"><p>Figma, a ChatGPT Plus subscription (or equivalent), and a Midjourney subscription for the duration of the course. All other tools are free or have free tiers.</p></div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-trigger" onclick="toggleAccordion(this)">
+        <span class="accordion-title">What if I miss a live session?</span>
+        <span class="accordion-chevron">⌄</span>
+      </button>
+      <div class="accordion-body"><p>All sessions are recorded and uploaded within 2 hours. We highly recommend attending live for the interactive Q&A and workshops, but recordings are available indefinitely.</p></div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-trigger" onclick="toggleAccordion(this)">
+        <span class="accordion-title">Is there a certificate?</span>
+        <span class="accordion-chevron">⌄</span>
+      </button>
+      <div class="accordion-body"><p>Yes — you'll receive a verifiable Maven certificate upon completion of all modules and the final project, shareable directly to LinkedIn.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="footer-cta">
+  <h2 class="footer-cta-title">Ready to lead with AI?</h2>
+  <p class="footer-cta-sub">The future of design isn't automated — it's augmented. Join the next cohort.</p>
+  <a href="#enroll" class="btn-dark">Enroll Now — $999</a>
+</section>
+
+<footer class="footer">
+  <div class="footer-copy">© 2026 Xinran Ma Studio. All rights reserved.</div>
+  <div class="footer-links">
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+    <a href="#">Contact</a>
+  </div>
+</footer>
+
+<script>
+function toggleAccordion(trigger) {
+  const item = trigger.closest('.accordion-item');
+  item.classList.toggle('open');
+}
+</script>
+</body>
+</html>
