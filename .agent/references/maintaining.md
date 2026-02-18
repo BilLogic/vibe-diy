@@ -1,208 +1,76 @@
-# Maintaining Mode - Updating the Design System
+# Maintaining Mode Reference
 
-## When to Use This Mode
-
-- User is adding new components to the design system
-- User is updating design tokens or theme variables
-- User is syncing icons from Figma
-- User is managing component metadata or descriptions
-- User is working on design system infrastructure
+## When to Use
+- Adding new primitives or compositions to the design system
+- Syncing design tokens after Figma changes
+- Generating new icons from Figma
+- Updating component metadata or descriptions in Figma
+- Managing dev resources or Code Connect mappings
 
 **Important**: This mode is for **design system contributors**, not product developers building with the system.
 
-## What to Load
+## User Persona
+- Design system team members
+- Contributors adding new components
+- Developers running sync scripts after Figma updates
 
-1. **Scripts Directory**
-   - Location: `scripts/`
-   - See [`scripts/README.md`](../scripts/README.md) for comprehensive documentation
+## Resources to Load
 
-2. **Component Source Files**
-   - Primitives: `src/ui/primitives/`
-   - Check existing patterns before creating new components
+1. **`scripts/README.md`** — Comprehensive documentation for all sync scripts
+2. **`src/ui/primitives/`** — Existing component patterns to follow
+3. **`src/theme.css`** — All CSS custom properties (design tokens)
+4. **`assets/components.md`** — To update when adding new components
 
-3. **Theme File**
-   - Location: `src/theme.css`
-   - Contains all CSS custom properties (design tokens)
+## Behavioral Guidelines
 
-4. **Figma Configuration**
-   - Location: `figma.config.json`
-   - Maps Figma components to code (if Code Connect is set up)
+- **Check existing patterns first** — Before creating anything new, review similar components in `src/ui/primitives/`
+- **Follow the scaffolding convention** — New primitives go in `src/ui/primitives/NewComponent/NewComponent.tsx`
+- **Always export** — Add new components to `src/ui/primitives/index.ts`
+- **Create Storybook stories** — Every new primitive needs `src/stories/primitives/NewComponent.stories.tsx`
+- **Update documentation** — Add new components to `assets/components.md`
+- **Use scripts for sync** — Never manually edit `src/theme.css` or icon files; use the sync scripts
 
-## Available Tools and Scripts
+## Workflows
 
-### 1. Token Sync (`scripts/tokens/`)
+### Token Sync
+1. Run `npm run script:tokens:rest` (requires Figma API token in `.env`)
+2. Alternative without API: export JSON from Figma plugins → save to `scripts/tokens/` → run `npm run script:tokens`
+3. Review changes in `src/theme.css`
 
-**Command**: `npm run script:tokens:rest` (with Figma API) or `npm run script:tokens` (local JSON)
+### Icon Generation
+1. Run `npm run script:icons:rest` (requires Figma API token in `.env`)
+2. Alternative: export from Figma plugin → save to `scripts/icons/icons.json` → run `npm run script:icons`
+3. Verify new icons appear in `src/ui/icons/`
 
-**Use when**: Design tokens have been updated in Figma
-
-**What it does**:
-- Fetches variables and styles from Figma
-- Converts to CSS custom properties
-- Updates `src/theme.css`
-- Creates `scripts/tokens/tokenVariableSyntaxAndDescriptionSnippet.js`
-
-**Alternative workflow** (without Figma API):
-1. Use Figma plugins to export to JSON
-2. Save to `scripts/tokens/styles.json` and `scripts/tokens/tokens.json`
-3. Run `npm run script:tokens` (without `:rest`)
-
-### 2. Icon Generation (`scripts/icons/`)
-
-**Command**: `npm run script:icons:rest` (with Figma API) or `npm run script:icons` (local JSON)
-
-**Use when**: New icons added or existing icons updated in Figma
-
-**What it does**:
-- Fetches all icons from Figma
-- Generates React components in `src/ui/icons/`
-- Generates `src/figma/icons/Icons.figma.tsx` for Code Connect
-
-**Alternative workflow**:
-1. Use Figma plugin to export to `scripts/icons/icons.json`
-2. Run `npm run script:icons` (without `:rest`)
-
-### 3. Dev Resources Bulk Update (`scripts/dev-resources/`)
-
-**Command**: `npm run script:dev-resources`
-
-**Use when**: Swapping URLs in bulk, maintaining Code Connect mappings
-
-**What it does**:
-- Sets dev resources for all components in `scripts/dev-resources/devResources.mjs`
-- Requires Dev Resources Write scope on Figma REST API token
-
-### 4. Component Metadata Management (`scripts/component-metadata/`)
-
-**Type**: Manual browser console scripts
-
-**Use when**: Bulk updating component descriptions in Figma
-
-**Process**:
-1. Open Figma file
+### Component Metadata (Figma descriptions)
+1. Open Figma file in browser
 2. Run `scripts/component-metadata/exportComponentJSON.js` in browser console
-3. Copy output to `scripts/component-metadata/components.json`
-4. Edit descriptions in JSON file
-5. Paste JSON into `scripts/component-metadata/importComponentJSON.js`
-6. Run import script in browser console
+3. Edit descriptions in the exported JSON
+4. Run `scripts/component-metadata/importComponentJSON.js` with updated JSON
 
-**Note**: Only updates descriptions; use dev-resources script for Dev Resources
+### Dev Resources Bulk Update
+1. Update `scripts/dev-resources/devResources.mjs` with new URLs
+2. Run `npm run script:dev-resources`
+3. Requires Dev Resources Write scope on Figma API token
 
-## Behavior in This Mode
+## New Component Checklist
 
-### Adding New Primitives
-
-When adding a new component to the design system:
-
-1. **Create component structure**:
-   ```
-   src/ui/primitives/NewComponent/
-   ├── NewComponent.tsx
-   └── NewComponent.module.css (if needed)
-   ```
-
-2. **Follow existing patterns**:
-   - Check similar components for structure
-   - Use React Aria/Stately if needed for accessibility
-   - Export from `src/ui/primitives/index.ts`
-
-3. **Create Storybook story**:
-   ```
-   src/stories/primitives/NewComponent.stories.tsx
-   ```
-
-4. **Update documentation**:
-   - Add to `assets/components.md`
-   - Create examples showing usage
-
-### Updating Design Tokens
-
-When design tokens change in Figma:
-
-1. Run token sync script:
-   ```bash
-   npm run script:tokens:rest
-   ```
-
-2. Review changes in `src/theme.css`
-
-3. Update `scripts/tokens/tokenVariableSyntaxAndDescriptionSnippet.js` in Figma console if needed
-
-4. Test components using updated tokens
-
-### Managing Icons
-
-When icons are added/updated:
-
-1. Run icon generation script:
-   ```bash
-   npm run script:icons:rest
-   ```
-
-2. Verify new icons in `src/ui/icons/`
-
-3. Check that exports are added to `src/ui/icons/index.ts`
-
-4. Test icon usage in components
-
-## Component Scaffolding Guidelines
-
-When creating new components, follow these conventions:
-
-### TypeScript Interface Pattern
-```tsx
-export interface NewComponentProps {
-  variant?: "primary" | "secondary";
-  size?: "small" | "medium" | "large";
-  isDisabled?: boolean;
-  children: React.ReactNode;
-}
-```
-
-### CSS Module Pattern
-```css
-/* NewComponent.module.css */
-.newComponent {
-  /* Use CSS variables */
-  color: var(--sds-color-text-default-default);
-  padding: var(--sds-size-space-400);
-}
-
-.newComponent[data-variant="primary"] {
-  background: var(--sds-color-background-brand-default);
-}
-```
-
-### Export Pattern
-```tsx
-// src/ui/primitives/index.ts
-export { NewComponent } from "./NewComponent/NewComponent";
-export type { NewComponentProps } from "./NewComponent/NewComponent";
-```
+- [ ] Component file created: `src/ui/primitives/NewComponent/NewComponent.tsx`
+- [ ] TypeScript interface defined with proper prop names (`isDisabled`, `onPress`, etc.)
+- [ ] CSS module created using CSS variables only (no hardcoded values)
+- [ ] Exported from `src/ui/primitives/index.ts`
+- [ ] Storybook story created: `src/stories/primitives/NewComponent.stories.tsx`
+- [ ] Added to `assets/components.md`
 
 ## Do's and Don'ts
 
-### ✅ Do
+✅ Follow existing component patterns and structure  
+✅ Use CSS variables for all design values  
+✅ Create comprehensive Storybook stories  
+✅ Use scripts for all Figma sync operations  
 
-- Follow existing component patterns and structure
-- Use CSS variables for all design values
-- Create comprehensive Storybook stories
-- Document new components in assets/components.md
-- Test across different breakpoints
-- Ensure accessibility compliance
-
-### ❌ Don't
-
-- Create components that duplicate existing functionality
-- Hardcode colors, spacing, or typography
-- Skip TypeScript types
-- Forget to export from index files
-- Skip Storybook documentation
-- Break existing component APIs without migration plan
-
-## Resources
-
-- **Scripts Documentation**: [`scripts/README.md`](../scripts/README.md)
-- **Component Reference**: [`assets/components.md`](../assets/components.md)
-- **Code Examples**: [`assets/code-examples.md`](../assets/code-examples.md)
-- **Existing Components**: Review `src/ui/primitives/` for patterns
+❌ Duplicate existing component functionality  
+❌ Hardcode colors, spacing, or typography  
+❌ Skip TypeScript types  
+❌ Forget to export from index files  
+❌ Break existing component APIs without a migration plan  

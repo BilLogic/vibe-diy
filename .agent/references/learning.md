@@ -1,155 +1,50 @@
-# Learning Mode - Understanding the Design System
+# Learning Mode Reference
 
-## When to Use This Mode
-
-- User is asking "how does X component work?"
-- User wants to know "what components are available?"
-- Designer exploring the design system capabilities
-- Developer learning how to use SDS components
+## When to Use
+- User asking "what components exist?" or "how does X work?"
 - Questions about component APIs, props, or usage patterns
+- Designer or developer exploring the design system capabilities
+- Understanding when to use one component vs another
 
-## What to Load
+## User Persona
+- New designers or developers onboarding to SDS
+- Experienced developers exploring unfamiliar components
+- Anyone asking "how do I..." rather than "build me..."
 
-1. **Storybook Documentation**
-   - Local: `npm run storybook` (localhost:6006)
-   - Live: https://figma.github.io/sds/storybook
-   - Contains interactive examples of all components
+## Resources to Load
 
-2. **Component Source Files**
-   - Primitives: `src/ui/primitives/`
-   - Compositions: `src/ui/compositions/`
-   - Layout: `src/ui/layout/`
-   - Each component has TypeScript definitions showing available props
+1. **`assets/components.md`** — Full component library reference (what exists, props, usage)
+2. **Component source files** — `src/ui/primitives/[Name]/[Name].tsx` for exact TypeScript interfaces
+3. **Story files** — `src/stories/primitives/[Name].stories.tsx` for real usage examples
+4. **Storybook** — https://figma.github.io/sds/storybook for interactive exploration
 
-3. **Story Files**
-   - Location: `src/stories/`
-   - Show real usage examples and common patterns
+## Behavioral Guidelines
 
-4. **Assets Documentation**
-   - [`assets/components.md`](../assets/components.md) - Full component library reference
-   - [`assets/code-examples.md`](../assets/code-examples.md) - Common patterns
-
-## Behavior in This Mode
-
-### Explain Components
-
-When asked about a component:
-1. Reference the component's TypeScript interface to show available props
-2. Point to Storybook for interactive examples
-3. Show code examples from `src/stories/`
-4. Explain when to use vs when not to use
-
-Example response structure:
-```
-The Button component is a primitive with three main variants:
-- primary (default, highest emphasis)
-- neutral (medium emphasis)
-- subtle (low emphasis)
-
-Props available:
-- variant: "primary" | "neutral" | "subtle"
-- size: "small" | "medium" | "large"
-- isDisabled: boolean
-- etc.
-
-See it in action: [Storybook Link]
-Example usage: [Code snippet from stories]
-```
-
-### Navigate the Component Library
-
-Help users understand the hierarchy:
-- **Primitives**: Atomic, single-purpose components (Button, Input, Text)
-- **Layout**: Structural components (Flex, Section, Grid)
-- **Compositions**: Pre-built patterns (Cards, Forms, Headers)
-- **Data Layer**: Contexts and hooks (useAuth, usePricing, useProducts)
-
-### Show Examples
-
-Always reference actual code from:
-- `src/stories/` - Storybook story files
-- `src/examples/` - Complete implementation examples
-- `assets/code-examples.md` - Common patterns
-
-## Resources to Reference
-
-### Storybook
-- **Best for**: Visual exploration, interactive prop testing
-- **URL**: https://figma.github.io/sds/storybook
-- **Local**: `npm run storybook`
-
-### Component Source Files
-- **Best for**: Understanding TypeScript interfaces and available props
-- **Location**: `src/ui/primitives/[ComponentName]/[ComponentName].tsx`
-
-### Story Files
-- **Best for**: Seeing real usage examples
-- **Location**: `src/stories/primitives/[ComponentName].stories.tsx`
-
-### Assets Documentation
-- **Component Reference**: `assets/components.md`
-- **Code Examples**: `assets/code-examples.md`
-- **Figma Links**: `assets/figma-links.md`
+- **Explain, don't build** — Describe how components work; don't generate new implementations
+- **Show real examples** — Pull from `src/stories/` or `assets/code-examples.md`, not invented code
+- **Point to sources** — Always reference Storybook or source files so the user can explore further
+- **Surface the hierarchy** — Help users understand Primitives → Layout → Compositions → Data Layer
+- **Read TypeScript first** — Check the component's `.tsx` file for accurate prop names before answering
 
 ## Example Interactions
 
-### User: "How do I use the Navigation component?"
+**"How do I use the Navigation component?"**
+→ Describe Navigation + NavigationPill, show props from the TypeScript interface, link to Storybook
 
-**Good Response:**
-```
-The Navigation component creates pill-style navigation with selection states.
+**"What layout components are available?"**
+→ Explain Flex, Section, Grid — their purpose, key props, and when to use each
 
-Key components:
-- Navigation (container)
-- NavigationPill (individual pill)
-
-Example from Storybook:
-[code snippet showing Navigation with NavigationPills]
-
-Props:
-- NavigationPill: isSelected (boolean)
-- Direction: row or column
-
-See it live in Storybook: [link]
-```
-
-### User: "What layout components are available?"
-
-**Good Response:**
-```
-SDS has three main layout components:
-
-1. **Flex** - Flexbox layouts
-   - Props: direction, gap, alignPrimary, alignSecondary, type
-   - Use for: Most layout needs, responsive grids
-
-2. **Section** - Page sections
-   - Props: variant, padding
-   - Use for: Content sections with consistent spacing
-
-3. **Grid** - CSS Grid layouts
-   - Props: columns, gap
-   - Use for: Complex grid layouts when Flex isn't sufficient
-
-Never write custom CSS for layout - always use these components.
-
-See examples in assets/code-examples.md
-```
+**"What's the difference between Button variants?"**
+→ List primary/secondary/destructive/ghost, explain emphasis hierarchy, show from stories
 
 ## Do's and Don'ts
 
-### ✅ Do
+✅ Point to Storybook for visual reference  
+✅ Show TypeScript interfaces for available props  
+✅ Provide examples from actual story files  
+✅ Explain component hierarchy and when to use each level  
 
-- Point to Storybook for visual reference
-- Show TypeScript interfaces for available props
-- Provide code examples from actual stories
-- Explain component hierarchy and when to use each level
-- Reference design tokens and CSS variables
-
-### ❌ Don't
-
-- Create custom examples that don't follow SDS patterns
-- Suggest using components that don't exist
-- Recommend importing from `@react-aria` directly
-- Show hardcoded values instead of design tokens
-- Skip accessibility considerations
+❌ Generate new code implementations  
+❌ Suggest components that don't exist in SDS  
+❌ Show hardcoded values instead of design tokens  
+❌ Recommend importing from `@react-aria` directly  
