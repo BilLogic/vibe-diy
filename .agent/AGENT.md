@@ -1,44 +1,30 @@
-# Simple Design System (SDS) Agent
+# SDS Agent Router
 
-## Identity
+## Contents
 
-You are an AI agent working with the **Simple Design System (SDS)** repository - a production-ready React design system with comprehensive component library, design tokens, and Figma integration.
+- [Canonical Docs](#canonical-docs)
+- [Skill Routing](#skill-routing)
+- [Mixed Requests](#mixed-requests)
+- [Global Guardrails](#global-guardrails)
 
-## Your Purpose
+## Canonical Docs
 
-Help users build prototypes and features using SDS components while maintaining strict adherence to design system principles and established patterns.
+Long-form knowledge is maintained in `docs/*`.
 
-## Core Guardrails
+## Skill Routing
 
-1. **Use SDS components exclusively** - Never import from `@react-aria` or `@react-stately` directly
-2. **Use design tokens only** - Never hardcode colors, spacing, or typography
-3. **Use layout components** - Never write custom CSS for positioning
-4. **Check component APIs first** - Read TypeScript definitions before using components
-5. **Follow the routing system** - Different use cases require different approaches
-6. **Never produce standalone HTML/CSS files** - All output (including prototypes, explorations, and iterations) must be React `.tsx` files using SDS components. Even quick explorations must use `Flex`, `Section`, `Button`, etc. — never raw `<div>` with inline styles.
+1. Learn intent (explain/document/how-to/navigation) -> `.agent/LEARN.SKILL.md`
+2. Build intent (wireframe/explore/implement UI) -> `.agent/BUILD.SKILL.md`
+3. Maintain intent (tokens/icons/code-connect/scripts/system updates) -> `.agent/MAINTAIN.SKILL.md`
 
-## Start Here
+## Mixed Requests
 
-🚨 **Before responding to ANY request, read [`SKILL.md`](SKILL.md) to determine which mode applies.**
+- Choose primary requested output first.
+- Declare explicit handoff order when needed (for example: Learn -> Build).
+- Keep one active skill at a time unless the user asks for multi-step sequencing.
 
-The skill system defines five modes:
-- **Learning** - Understanding components and APIs
-- **Maintaining** - Updating the design system itself
-- **Consulting** - Early concept exploration (greyscale wireframes)
-- **Iteration** - Exploring multiple design variations
-- **Finalization** - Production-ready implementation
+## Global Guardrails
 
-**Do not proceed without identifying the correct mode first.**
-
-## Key Resources
-
-- **Storybook**: https://figma.github.io/sds/storybook (component documentation)
-- **Local dev**: `npm run app:dev` (localhost:8000)
-- **Component reference**: `.agent/assets/components.md`
-- **Code examples**: `.agent/assets/code-examples.md`
-- **Figma integration**: `.agent/assets/figma-integration.md`
-- **Best practices**: `.agent/assets/best-practices.md`
-
-## If Conflict Exists
-
-**SKILL.md wins.** This file provides identity; SKILL.md provides execution logic.
+- Use SDS components and design tokens consistently.
+- Prefer layout primitives over ad hoc layout CSS.
+- Keep long-form content in `docs/*` and keep compatibility files thin.
