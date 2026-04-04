@@ -1,39 +1,32 @@
 # SDS Playground Docs
 
-SDS Playground builds on the original Figma SDS and repurposes it as a demo environment for AI-assisted prototyping, iteration, and design-development workflow testing.
+## Compound Designing (Workshop)
 
-## Contents
+This repo has been extended for the Compound Designing workshop. Start here:
 
-- [Upstream and Scope](#upstream-and-scope)
-- [Start Here](#start-here)
-- [Runtime Resources](#runtime-resources)
-- [Agent Skills](#agent-skills)
+| What | Where |
+|------|-------|
+| Workflow orchestration | [`.agent/AGENT.md`](../.agent/AGENT.md) |
+| Skills (Prototyper, Consultant, Critic, Compounder) | [`.agent/skills/`](../.agent/skills/) |
+| Context (persona, design system, product) | [`context/`](../context/) |
+| Knowledge compound (lessons, preferences) | [`knowledge/`](../knowledge/) |
+| Starter prompts | [`prompts/`](../prompts/) |
 
-## Upstream and Scope
+## Repo Development Docs
 
-- Upstream project: [figma/sds](https://github.com/figma/sds)
-- Upstream Figma file: [Simple Design System](https://www.figma.com/community/file/1380235722331273046/simple-design-system)
-- This repo focus: SDS-based playground workflows for agent-guided product exploration and implementation.
+For working on the SDS codebase itself:
 
-## Start Here
+- [Getting Started](./getting-started.md) — setup and local dev
+- [Architecture](./architecture.md) — repo layout and code organization
+- [Patterns](./patterns.md) — code conventions and import aliases
+- [Figma Sync](./figma-sync.md) — design token and icon sync workflows
+- [Contributing](./contributing.md) — contribution guidelines
+- [Docs Ownership](./docs-ownership.md) — who maintains what
 
-- [Getting Started](./getting-started.md)
-- [Architecture](./architecture.md)
-- [AI Workflows](./ai-workflows.md)
-- [Figma Sync Workflow](./figma-sync.md)
-- [Component Reference](./component-reference.md)
-- [Patterns and Guardrails](./patterns.md)
-- [Contributing](./contributing.md)
-- [Docs Ownership](./docs-ownership.md)
+## Resources
 
-## Runtime Resources
-
+- Upstream: [figma/sds](https://github.com/figma/sds)
+- Figma file: [Simple Design System](https://www.figma.com/community/file/1380235722331273046/simple-design-system)
 - Storybook: https://figma.github.io/sds/storybook
-- Local app: `npm run app:dev` at `http://localhost:8000`
-- Local Storybook: `npm run storybook` at `http://localhost:6006`
-
-## Agent Skills
-
-- Learn: [`../.agent/LEARN.SKILL.md`](../.agent/LEARN.SKILL.md)
-- Build: [`../.agent/BUILD.SKILL.md`](../.agent/BUILD.SKILL.md)
-- Maintain: [`../.agent/MAINTAIN.SKILL.md`](../.agent/MAINTAIN.SKILL.md)
+- Local app: `npm run app:dev`
+- Local Storybook: `npm run storybook`

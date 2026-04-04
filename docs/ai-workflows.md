@@ -1,5 +1,9 @@
 # AI Workflows
 
+> **Note:** Workflow orchestration has moved to [`.agent/AGENT.md`](../.agent/AGENT.md), which includes the double diamond design process and 4-skill routing (Consultant, Prototyper, Critic, Compounder). The legacy routing policy below is preserved for reference.
+
+---
+
 ## Contents
 
 - [Learn Workflow](#learn-workflow)

@@ -1,5 +1,7 @@
 # Patterns and Guardrails
 
+> **Note:** Design system guardrails (principles, accessibility standards, layout rules) are now in [`context/design-system/foundations/`](../context/design-system/foundations/). This file covers code-specific patterns and conventions.
+
 ## Contents
 
 - [Critical Rules](#critical-rules)

@@ -1,5 +1,9 @@
 # Component Reference
 
+> **Note:** A categorized component index is now at [`context/design-system/components/index.md`](../context/design-system/components/index.md), organized by function (actions, containment, communication, navigation, selection, text input) with usage guidelines. The original quick reference is preserved below.
+
+---
+
 ## Contents
 
 - [Primitives](#primitives)
