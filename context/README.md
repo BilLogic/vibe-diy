@@ -2,13 +2,14 @@
 
 Context engineering gives the agent the knowledge it needs to make good design decisions. Without context, agents produce generic output. With context, they produce work grounded in your specific design system, product, and audience.
 
-## Three Buckets
+## Two Buckets
 
 | Bucket | Location | What it provides |
 |--------|----------|-----------------|
-| Persona | `persona.md` | Agent role, responsibilities, constraints |
 | Design System | `design-system/` | Foundations, styles, components — everything needed to build with SDS |
 | Product | `product/` | What we're building, for whom, and why |
+
+Agent role, constraints, and tone are defined in `.agent/AGENT.md` (the orchestration layer).
 
 ## How It's Used
 

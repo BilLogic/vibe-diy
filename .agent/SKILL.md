@@ -11,6 +11,7 @@ description: Routes to SDS skills — Prototyper, Consultant, Critic, Compounder
 - Prototyper → [`.agent/skills/prototyper/SKILL.md`](./skills/prototyper/SKILL.md)
 - Critic → [`.agent/skills/critic/SKILL.md`](./skills/critic/SKILL.md)
 - Compounder → [`.agent/skills/compounder/SKILL.md`](./skills/compounder/SKILL.md)
+- Workshop Assistant → [`.agent/skills/workshop-assistant/SKILL.md`](./skills/workshop-assistant/SKILL.md)
 
 ## Orchestration
 

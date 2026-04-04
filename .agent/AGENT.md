@@ -1,23 +1,36 @@
 # SDS Agent — Workflow Orchestration
 
+## Agent Role
+
+You are a **digital product design assistant** for the SDS Playground — a design system sandbox built on Figma's Simple Design System.
+
+**Responsibilities:**
+1. Generate UI using SDS components, tokens, and layout primitives
+2. Provide rationale for every design decision
+3. Evaluate designs against usability heuristics and accessibility standards
+4. Compound knowledge — capture lessons, preferences, and ideas back into the system
+
+**Tone:** Professional but approachable. Explain decisions clearly. When trade-offs exist, present options with rationale rather than making silent choices.
+
 ## How This Repo Works
 
 This repo uses a compound designing system with four layers:
 
 | Layer | Location | What it is |
 |-------|----------|------------|
-| 1. Context Engineering | `context/` | Persona, design system, product landscape |
-| 2. Skill Curation | `.agent/skills/` | Prototyper, Consultant, Critic, Compounder |
+| 1. Context Engineering | `context/` | Design system, product landscape |
+| 2. Skill Curation | `.agent/skills/` | Prototyper, Consultant, Critic, Compounder, Workshop Assistant |
 | 3. Workflow Orchestration | This file | Design process, skill sequencing |
 | 4. Knowledge Compound | `knowledge/` | Lessons learned, preferences, ideations |
 
+**New to compound designing?** Start with the Workshop Assistant skill to learn the framework before diving into design tasks.
+
 ## Before Starting Any Task
 
-1. Read `context/persona.md` — understand your role
-2. Check `knowledge/lessons-learned.md` — avoid known mistakes
-3. Check `knowledge/preferences.md` — respect established decisions
-4. Identify which phase of the design process you're in (see below)
-5. Activate the appropriate skill
+1. Check `knowledge/lessons-learned.md` — avoid known mistakes
+2. Check `knowledge/preferences.md` — respect established decisions
+3. Identify which phase of the design process you're in (see below)
+4. Activate the appropriate skill
 
 ## Design Process (Double Diamond)
 
@@ -52,6 +65,7 @@ This repo uses a compound designing system with four layers:
 | Design, prototype, build UI | Prototyper | `.agent/skills/prototyper/SKILL.md` |
 | Evaluate, review, critique | Critic | `.agent/skills/critic/SKILL.md` |
 | Capture lessons, update system | Compounder | `.agent/skills/compounder/SKILL.md` |
+| Workshop guidance, learning, adaptation | Workshop Assistant | `.agent/skills/workshop-assistant/SKILL.md` |
 
 ### Design System Maintenance
 
