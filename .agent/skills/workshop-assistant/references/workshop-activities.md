@@ -2,6 +2,16 @@
 
 4 hands-on activities that demonstrate the compound designing framework.
 
+## Setting the Stage
+
+Before the activities, use the assets in `prompts/assets/` to frame the problem:
+
+1. **The problem** — show `rage-text-*.png` screenshots (AI producing garbage without context)
+2. **The comparison** — show `compare-*.png` (same task: PLUS vs v0 vs Figma Make)
+3. **The solution** — show `plus-uno-*.png` (compound designing in practice at PLUS)
+
+See `prompts/assets/README.md` for the full asset index.
+
 ## Activity 1: Context Walkthrough
 
 **Demonstrates:** Layer 1 — how context grounds the agent
