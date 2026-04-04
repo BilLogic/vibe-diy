@@ -1,6 +1,6 @@
-# Cursor Rules — SDS Compound Designing Workshop
+# SDS Compound Designing Workshop
 
-This project uses a compound designing system. All agent configuration lives in `.agent/`.
+Read `.agent/AGENT.md` for full workflow orchestration, skill routing, and guardrails.
 
 ## Quick Start
 - Workflow orchestration: `.agent/AGENT.md`
@@ -27,7 +27,7 @@ This project uses a compound designing system. All agent configuration lives in 
 ## MCP Setup
 - **Stitch MCP** — for generating UI code from design specs
 - **Figma MCP** — for reading from and writing to Figma files
-- Configure these in your MCP settings panel before starting
+- Configure these in your tool's MCP settings before starting
 
 ## Code Guardrails
 - SDS components only: `import { Button } from "primitives"`
