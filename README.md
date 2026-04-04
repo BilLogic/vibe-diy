@@ -1,124 +1,146 @@
-# SDS Playground ��� Compound Designing Workshop
+# Compound Designing Workshop
 
 > How to stop repeating prompts and start building a system that gets smarter every time you design with it
 
-**Workshop by Bill Guo** at Carnegie Mellon University
-
-## Workshop Quick Start
-
-**Claude Code:** Clone → open → `.agent/AGENT.md` auto-loads → configure MCPs (Stitch + Figma) → try `prompts/landing-page.md`
-
-**Cursor:** Clone → open → `.cursorrules` auto-loads → configure MCPs → try demo prompt
-
-**Other tools:** Read `.agent/AGENT.md` for orchestration logic, adapt to your tool
-
-### First-Time MCP Setup
-
-Before starting, connect your MCP integrations:
-1. **Stitch MCP** — for generating UI code from design specs
-2. **Figma MCP** — for reading from and writing to Figma files
-
-In **Claude Code**: configure via plugins (Settings → Plugins → enable Stitch + Figma) or add to `.claude/settings.local.json`
-In **Cursor**: use the MCP settings panel
-
-### Repo Map (Compound Designing Layers)
-
-| Folder | Layer | What it is |
-|--------|-------|------------|
-| `context/` | 1. Context Engineering | Persona, design system, product landscape |
-| `.agent/skills/` | 2. Skill Curation | Prototyper, Consultant, Critic, Compounder |
-| `.agent/AGENT.md` | 3. Workflow Orchestration | Double diamond process, skill sequencing |
-| `knowledge/` | 4. Knowledge Compound | Lessons learned, preferences, ideations |
-| `prompts/` | — | Starter prompts for hands-on |
-
-### Credits
-- Compound Engineering — Kieran Klaassen at Every
-- Material Design — Google: [m3.material.io](https://m3.material.io/)
-- SDS upstream: [figma/sds](https://github.com/figma/sds)
+**A 60-minute workshop by [Bill Guo](https://www.linkedin.com/in/billguodesign/) at Carnegie Mellon University**
+BHCI grad, UXA alum, Design Lead at PLUS
 
 ---
 
-# SDS Playground
+## What Is Compound Designing?
 
-SDS Playground is built on top of Figma's original Simple Design System (SDS) and repurposed as a practical sandbox for AI-assisted product design and development workflows.
+Most AI-assisted design is a one-shot loop: prompt, get output, fix it, repeat. Compound designing breaks this by structuring four layers that build on each other:
 
-This repository is for testing how agents, design tokens, component systems, and implementation loops can work together in real feature prototyping.
+| Layer | What it does | Where it lives |
+|-------|-------------|----------------|
+| **1. Context Engineering** | Grounds the agent in your design system, product, and audience | `context/` |
+| **2. Skill Curation** | Focused behaviors with progressive reference loading | `.agent/skills/` |
+| **3. Workflow Orchestration** | Sequences skills through a design process | `.agent/AGENT.md` |
+| **4. Knowledge Compound** | Captures lessons so the system improves over time | `knowledge/` |
 
-## What You Can Do Here
+The result: every design task is informed by every previous one.
 
-- Explore SDS components and composition patterns in Storybook.
-- Prototype product ideas with agent-assisted workflows.
-- Compare design/implementation options quickly (consulting -> iteration -> finalization).
-- Maintain design system alignment with Figma via token/icon/Code Connect sync scripts.
-
-## Upstream vs This Repo
-
-- Upstream baseline: [figma/sds](https://github.com/figma/sds)
-- Upstream design file: [Simple Design System on Figma Community](https://www.figma.com/community/file/1380235722331273046/simple-design-system)
-- This repo focus: workflow experimentation and onboarding for AI-driven prototyping on SDS foundations.
-
-## Who This Is For
-
-- Designers exploring faster product concept-to-code loops.
-- Engineers building feature prototypes with consistent UI primitives.
-- Design system contributors maintaining code/design synchronization.
+---
 
 ## Quick Start
 
-```bash
-npm i
-npm run app:dev
-npm run storybook
-```
-
-- App: http://localhost:8000
-- Storybook: http://localhost:6006
-- Hosted Storybook: https://figma.github.io/sds/storybook
-
-## How To Evaluate This Repo In 10 Minutes
-
-1. Open Storybook and browse primitives/layout/compositions.
-2. Read [AI Workflows](./docs/ai-workflows.md) to understand Learn/Build/Maintain routing.
-3. Check [Patterns and Guardrails](./docs/patterns.md) for implementation rules.
-4. Review [Figma Sync Workflow](./docs/figma-sync.md) if you plan to sync tokens/icons/resources.
-
-## Agent Files Overview
-
-The `.agent` folder defines how AI agents should operate in this repo.
-
-- [`.agent/AGENT.md`](./.agent/AGENT.md) — Workflow orchestration with double diamond design process
-- [`.agent/SKILL.md`](./.agent/SKILL.md) — Routes to 4 skills: Consultant, Prototyper, Critic, Compounder
-- [`.agent/skills/`](./.agent/skills/) — Skill definitions with reference docs
-
-## Documentation Map
-
-Canonical long-form docs live in [`docs/`](./docs):
-
-- [Docs Index](./docs/index.md)
-- [Getting Started](./docs/getting-started.md)
-- [Architecture](./docs/architecture.md)
-- [AI Workflows](./docs/ai-workflows.md)
-- [Figma Sync Workflow](./docs/figma-sync.md)
-- [Component Reference](./docs/component-reference.md)
-- [Patterns and Guardrails](./docs/patterns.md)
-- [Contributing](./docs/contributing.md)
-- [Docs Ownership](./docs/docs-ownership.md)
-
-## Figma Setup
-
-Duplicate `.env-rename` as `.env`:
+### 1. Clone and install
 
 ```bash
-FIGMA_ACCESS_TOKEN=your_figma_token
-FIGMA_FILE_KEY=your_figma_file_key
+git clone https://github.com/BilLogic/sds.git
+cd sds
+npm install
 ```
 
-## Common Sync Commands
+### 2. Open in your AI tool
+
+| Tool | What auto-loads | Entry point |
+|------|----------------|-------------|
+| Claude Code | `CLAUDE.md` | Points to `.agent/AGENT.md` |
+| Cursor | `.cursor/rules/agent.mdc` | Points to `.agent/AGENT.md` |
+| Codex | `AGENTS.md` | Points to `.agent/AGENT.md` |
+| Windsurf | `.windsurf/rules/agent.md` | Points to `.agent/AGENT.md` |
+
+### 3. Configure MCPs
+
+Connect these before starting:
+
+- **Stitch MCP** — generates UI code from design specs
+- **Figma MCP** — reads/writes Figma files for design-code sync
+
+In **Claude Code**: Settings > Plugins > enable Stitch + Figma
+In **Cursor**: MCP settings panel
+
+### 4. Try the demo prompt
+
+Open `prompts/landing-page.md` and paste it into your AI tool. Watch the agent:
+1. Check for a plan (none exists) — hands off to Consultant
+2. Research product context and user needs
+3. Generate a prototype via Stitch MCP
+4. Implement in code with SDS components and tokens
+5. Suggest Critic review for compliance
+
+---
+
+## Repo Structure
+
+```
+sds/
+├── .agent/
+│   ├── AGENT.md                    # Workflow orchestration (Layer 3)
+│   ├── SKILL.md                    # Skill router
+│   └── skills/
+│       ├── consultant/             # Research, analysis, strategy
+│       ├── prototyper/             # UI generation with SDS
+│       ├── critic/                 # Design evaluation + compliance
+│       ├── compounder/             # Knowledge capture
+│       └── workshop-assistant/     # Workshop guidance + adaptation
+│
+├── context/                        # Layer 1: Context Engineering
+│   ├── design-system/              # Foundations, styles, components
+│   │   ├── foundations/            # Principles, accessibility, layout
+│   │   ├── styles/                 # Color, typography, elevation, shape, motion, icons
+│   │   └── components/             # Master component index
+│   └── product/                    # Overview, users, journey, tech stack
+│
+├── knowledge/                      # Layer 4: Knowledge Compound
+│   ├── lessons-learned.md          # Mistakes and rules
+│   ├── preferences.md              # Standing decisions
+│   ├── ideations.md                # Ideas worth exploring
+│   └── changelog.md                # Knowledge change log
+│
+├── prompts/                        # Starter prompts for hands-on
+│   ├── landing-page.md             # Main demo prompt
+│   ├── explore.md                  # Open-ended experimentation
+│   └── assets/                     # Workshop presentation assets
+│
+├── src/                            # SDS component library (unchanged)
+│   ├── ui/primitives/              # 28 components
+│   ├── ui/layout/                  # Flex, Grid, Section
+│   ├── ui/compositions/            # Cards, Forms, Headers, Footers
+│   ├── ui/icons/                   # 290+ icons
+│   └── theme.css                   # Design tokens (--sds-* properties)
+│
+├── docs/                           # Repo development docs
+└── CLAUDE.md / AGENTS.md / etc.    # Tool-specific entry points
+```
+
+---
+
+## Workshop Format
+
+| Time | What | Mode |
+|------|------|------|
+| 0-30 min | Talk: the problem, the framework, live demo | Presentation |
+| 30-60 min | Hands-on: students build with compound designing | Interactive |
+
+### Demo Activities
+
+1. **Context walkthrough** — explore the 4 layers in the file explorer
+2. **Skill exploration** — see progressive disclosure in action
+3. **Full design workflow** — Consultant > Prototyper > Stitch MCP > Critic
+4. **Knowledge compounding** — agent learns from a mistake
+
+See `.agent/skills/workshop-assistant/references/workshop-activities.md` for detailed instructions.
+
+---
+
+## Dev Commands
 
 ```bash
-npm run script:tokens:rest
-npm run script:icons:rest
-npm run script:dev-resources
+npm run app:dev       # Local app → http://localhost:8000
+npm run storybook     # Storybook → http://localhost:6006
 ```
 
-See [docs/figma-sync.md](./docs/figma-sync.md) for the full sync workflow and troubleshooting notes.
+## Resources
+
+- Upstream: [figma/sds](https://github.com/figma/sds)
+- Design file: [Simple Design System](https://www.figma.com/community/file/1380235722331273046/simple-design-system)
+- Storybook: https://figma.github.io/sds/storybook
+- Docs: [`docs/index.md`](./docs/index.md)
+
+## Credits
+
+- **Compound Engineering** — [Kieran Klaassen at Every](https://every.to/source-code/compound-engineering-how-every-codes-with-agents-af3a1bae-cf9b-458e-8048-c6b4ba860e62)
+- **Material Design** — Google: [m3.material.io](https://m3.material.io/)
+- **SDS** — Figma: [figma/sds](https://github.com/figma/sds)
