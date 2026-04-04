@@ -1,3 +1,43 @@
+# SDS Playground ��� Compound Designing Workshop
+
+> How to stop repeating prompts and start building a system that gets smarter every time you design with it
+
+**Workshop by Bill Guo** at Carnegie Mellon University
+
+## Workshop Quick Start
+
+**Claude Code:** Clone → open → `.agent/AGENT.md` auto-loads → configure MCPs (Stitch + Figma) → try `prompts/landing-page.md`
+
+**Cursor:** Clone → open → `.cursorrules` auto-loads → configure MCPs → try demo prompt
+
+**Other tools:** Read `.agent/AGENT.md` for orchestration logic, adapt to your tool
+
+### First-Time MCP Setup
+
+Before starting, connect your MCP integrations:
+1. **Stitch MCP** — for generating UI code from design specs
+2. **Figma MCP** — for reading from and writing to Figma files
+
+In **Claude Code**: configure via plugins (Settings → Plugins → enable Stitch + Figma) or add to `.claude/settings.local.json`
+In **Cursor**: use the MCP settings panel
+
+### Repo Map (Compound Designing Layers)
+
+| Folder | Layer | What it is |
+|--------|-------|------------|
+| `context/` | 1. Context Engineering | Persona, design system, product landscape |
+| `.agent/skills/` | 2. Skill Curation | Prototyper, Consultant, Critic, Compounder |
+| `.agent/AGENT.md` | 3. Workflow Orchestration | Double diamond process, skill sequencing |
+| `knowledge/` | 4. Knowledge Compound | Lessons learned, preferences, ideations |
+| `prompts/` | — | Starter prompts for hands-on |
+
+### Credits
+- Compound Engineering — Kieran Klaassen at Every
+- Material Design — Google: [m3.material.io](https://m3.material.io/)
+- SDS upstream: [figma/sds](https://github.com/figma/sds)
+
+---
+
 # SDS Playground
 
 SDS Playground is built on top of Figma's original Simple Design System (SDS) and repurposed as a practical sandbox for AI-assisted product design and development workflows.
