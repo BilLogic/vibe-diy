@@ -1,32 +1,32 @@
 ---
 name: SDS Skill Router
-description: Compatibility entrypoint that routes to SDS Learn, Build, or Maintain skills and canonical docs in docs/.
+description: Routes to SDS skills. Workshop skills (prototyper, consultant, critic, compounder) in skills/. Legacy skills (Learn, Build, Maintain) also available.
 ---
 
-# SDS Skill Router (Compatibility)
+# SDS Skill Router
 
-## Contents
+## Workshop Skills (Compound Designing)
 
-- [Choose One Skill](#choose-one-skill)
-- [Canonical Knowledge Base](#canonical-knowledge-base)
-- [Compatibility Rule](#compatibility-rule)
+- Consultant → [`.agent/skills/consultant/SKILL.md`](./skills/consultant/SKILL.md)
+- Prototyper → [`.agent/skills/prototyper/SKILL.md`](./skills/prototyper/SKILL.md)
+- Critic → [`.agent/skills/critic/SKILL.md`](./skills/critic/SKILL.md)
+- Compounder → [`.agent/skills/compounder/SKILL.md`](./skills/compounder/SKILL.md)
 
-## Choose One Skill
+## Legacy Skills
 
-- Learn -> [`LEARN.SKILL.md`](./LEARN.SKILL.md)
-- Build -> [`BUILD.SKILL.md`](./BUILD.SKILL.md)
-- Maintain -> [`MAINTAIN.SKILL.md`](./MAINTAIN.SKILL.md)
+- Learn → [`LEARN.SKILL.md`](./LEARN.SKILL.md)
+- Build → [`BUILD.SKILL.md`](./BUILD.SKILL.md)
+- Maintain → [`MAINTAIN.SKILL.md`](./MAINTAIN.SKILL.md)
 
-## Canonical Knowledge Base
+## Orchestration
 
-All long-form references are maintained in `docs/*`:
+See [`AGENT.md`](./AGENT.md) for workflow orchestration — how skills sequence within the design process.
 
-- [`../docs/index.md`](../docs/index.md)
-- [`../docs/ai-workflows.md`](../docs/ai-workflows.md)
-- [`../docs/figma-sync.md`](../docs/figma-sync.md)
-- [`../docs/component-reference.md`](../docs/component-reference.md)
-- [`../docs/patterns.md`](../docs/patterns.md)
-- [`../docs/architecture.md`](../docs/architecture.md)
+## Context & Knowledge
+
+- Context engineering: `context/*`
+- Compounded knowledge: `knowledge/*`
+- Repo development docs: `docs/*`
 
 ## Compatibility Rule
 
