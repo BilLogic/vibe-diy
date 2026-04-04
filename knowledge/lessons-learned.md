@@ -37,3 +37,39 @@ A running log of design mistakes and the rules they produced. Read this before s
 **Solution:** Replaced the custom card with the existing SDS Cards composition from `context/design-system/components/index.md`.
 
 **Rule for next time:** Always check `context/design-system/components/index.md` before building any new component. If SDS already provides it, use it.
+
+---
+
+## 2026-04-04 — Persona is behavioral, not context
+
+**What happened:** Created `context/persona.md` as a separate file defining agent role, constraints, and tone.
+
+**What went wrong:** The persona content is behavioral routing (HOW the agent should act) not product/design context (WHAT it needs to know). Having it in `context/` meant an extra file read on every task, and it was conceptually misplaced.
+
+**Solution:** Merged persona content into `.agent/AGENT.md` under an "Agent Role" section. Deleted `context/persona.md`.
+
+**Rule for next time:** Agent role, constraints, and tone belong in the orchestration doc (AGENT.md), not in context files. Context = domain knowledge. Behavior = orchestration.
+
+---
+
+## 2026-04-04 — Tool entry points should be thin pointers
+
+**What happened:** Created `CLAUDE.md`, `AGENTS.md`, and tool-specific rule files with full skill lists, guardrails, and MCP instructions duplicated in each.
+
+**What went wrong:** Four files with overlapping content meant four places to update when anything changed. Content drifted immediately.
+
+**Solution:** Slimmed all entry points to a single line: `Read .agent/AGENT.md before starting any task.`
+
+**Rule for next time:** Tool-specific entry points should be one-line pointers to `.agent/AGENT.md`. Never duplicate orchestration content across multiple files.
+
+---
+
+## 2026-04-04 — Skill docs must separate behavior from implementation detail
+
+**What happened:** Wrote SKILL.md files with code examples, grep patterns, report templates, and source lists inlined.
+
+**What went wrong:** 70-80 line SKILL.md files mixing behavioral routing and implementation detail. Defeats progressive disclosure — agent loads everything upfront.
+
+**Solution:** Extracted implementation details into reference files (`references/output-format.md`, `references/compliance-checklist.md`). SKILL.md files now contain only: frontmatter, activation triggers, behavioral workflow, and references list.
+
+**Rule for next time:** SKILL.md = WHEN + WHAT (behavioral). References = HOW (implementation, loaded on demand). Code examples and checklists in SKILL.md belong in a reference file.
