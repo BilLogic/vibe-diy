@@ -1,0 +1,7 @@
+---
+description: SDS Compound Designing agent orchestration
+globs:
+alwaysApply: true
+---
+
+Read `.agent/AGENT.md` before starting any task.
