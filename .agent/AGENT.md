@@ -53,13 +53,12 @@ This repo uses a compound designing system with four layers:
 | Evaluate, review, critique | Critic | `.agent/skills/critic/SKILL.md` |
 | Capture lessons, update system | Compounder | `.agent/skills/compounder/SKILL.md` |
 
-**Legacy skills** (still functional for repo maintenance):
+### Design System Maintenance
 
-| Intent | Skill | Path |
-|--------|-------|------|
-| Explain, document, navigate | Learn | `.agent/LEARN.SKILL.md` |
-| Build, wireframe, implement | Build | `.agent/BUILD.SKILL.md` |
-| Sync tokens, icons, maintain | Maintain | `.agent/MAINTAIN.SKILL.md` |
+For token sync, icon generation, Code Connect updates, and other design system maintenance tasks:
+- Follow script-first workflows: `docs/figma-sync.md`
+- Contribution guidelines: `docs/contributing.md`
+- Use the **Prototyper** skill for implementation, **Compounder** to log changes
 
 ## MCP Setup
 

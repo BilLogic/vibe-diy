@@ -86,28 +86,9 @@ npm run storybook
 
 The `.agent` folder defines how AI agents should operate in this repo.
 
-- [`.agent/AGENT.md`](./.agent/AGENT.md)
-  - Top-level router and conflict policy.
-  - Explains how mixed requests are sequenced.
-
-- [`.agent/LEARN.SKILL.md`](./.agent/LEARN.SKILL.md)
-  - Use for explanation/documentation/navigation tasks.
-  - Prioritizes references and guidance over direct implementation.
-
-- [`.agent/BUILD.SKILL.md`](./.agent/BUILD.SKILL.md)
-  - Use for wireframing, iteration, and production-oriented implementation.
-  - Enforces SDS component and token guardrails.
-
-- [`.agent/MAINTAIN.SKILL.md`](./.agent/MAINTAIN.SKILL.md)
-  - Use for design-system maintenance tasks.
-  - Covers token/icon sync, metadata, dev resources, and Code Connect updates.
-
-- [`.agent/SKILL.md`](./.agent/SKILL.md)
-  - Compatibility entrypoint that routes to Learn/Build/Maintain skills.
-
-- `.agent/assets/*` and `.agent/references/*`
-  - Compatibility stubs that forward to canonical docs.
-  - Kept to avoid broken links while preventing duplicate long-form content.
+- [`.agent/AGENT.md`](./.agent/AGENT.md) — Workflow orchestration with double diamond design process
+- [`.agent/SKILL.md`](./.agent/SKILL.md) — Routes to 4 skills: Consultant, Prototyper, Critic, Compounder
+- [`.agent/skills/`](./.agent/skills/) — Skill definitions with reference docs
 
 ## Documentation Map
 
