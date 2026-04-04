@@ -17,7 +17,7 @@ Follow this sequence — do not skip steps.
 
 Before prototyping, check if a design plan exists (requirements, layout strategy, component choices).
 
-- **No plan yet?** → Hand off to the **Consultant** skill first. Say: "Let me bring in the Consultant to define requirements before we prototype." The Consultant will research, analyze, and produce a plan. Come back here when the plan is ready.
+- **No plan yet?** → Hand off to the **Consultant** skill first. The Consultant will research, analyze, and produce a plan. Come back here when the plan is ready.
 - **Plan exists?** → Proceed to Step 2.
 
 ### Step 2: Check for an Existing Prototype
@@ -27,12 +27,10 @@ Before prototyping, check if a design plan exists (requirements, layout strategy
 
 ### Step 3: Implement in Code
 
-1. **Check component index** — read `context/design-system/components/index.md`. Never invent components that don't exist in SDS.
-2. **Load references on demand** — only load specific references as needed (progressive disclosure)
-3. **Follow style tokens** — read `references/styles-summary.md`. Use exact `--sds-*` token names.
-4. **Respect layout** — use `Flex`, `Section`, `Grid`. Reference `references/foundations-summary.md`.
-5. **Check product context** — read `context/product/overview.md` and `context/product/users.md`
-6. **Check lessons learned** — read `knowledge/lessons-learned.md` before generating
+1. Read `context/design-system/components/index.md` �� never invent components
+2. Read `references/output-format.md` — follow code conventions and token mapping
+3. Load other references on demand as needed (progressive disclosure)
+4. Read `knowledge/lessons-learned.md` — avoid known mistakes
 
 ### Step 4: Present and Review
 
@@ -44,26 +42,12 @@ Before prototyping, check if a design plan exists (requirements, layout strategy
 
 If the user wants to refine the design visually:
 1. Use **Figma MCP** to replicate the design into a Figma file
-2. User can fine-tune layout, spacing, and visual details in Figma
+2. User fine-tunes layout, spacing, and visual details in Figma
 3. Read the updated Figma file back via Figma MCP and apply changes to code
 
-## Output Format
-- React/TypeScript using SDS imports:
-  ```tsx
-  import { Button, Text, Input } from "primitives";
-  import { Flex, Section, Grid } from "layout";
-  import { IconArrowRight } from "icons";
-  ```
-- Token mapping: `<Section padding="400" />` → `var(--sds-size-space-400)`
-- Include comments noting component and token choices
-
 ## References (load on demand — not all at once)
+- `references/output-format.md` — code conventions, imports, token mapping, canonical sources
 - `references/component-index.md` — compact component list
 - `references/styles-summary.md` — all style token values
 - `references/foundations-summary.md` — layout, spacing, accessibility
-- `references/interaction-patterns.md` — common UI patterns
-
-## Canonical Sources
-- Component code: `src/ui/primitives/`, `src/ui/compositions/`, `src/ui/layout/`
-- Full token definitions: `src/theme.css`
-- Storybook: https://figma.github.io/sds/storybook
+- `references/interaction-patterns.md` — common UI patterns for landing pages
