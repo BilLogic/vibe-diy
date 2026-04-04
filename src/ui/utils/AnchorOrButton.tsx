@@ -23,7 +23,7 @@ export type AnchorOrButtonProps = (
 function isAnchorProps(
   props: AnchorOrButtonProps,
 ): props is AnchorOrButtonSharedProps &
-  ComponentPropsWithoutRef<typeof RACLink> {
+ComponentPropsWithoutRef<typeof RACLink> {
   return "href" in props;
 }
 
@@ -34,7 +34,7 @@ export const AnchorOrButton = forwardRef(function AnchorOrButton(
   const { style, ...sharedProps } = props;
   return isAnchorProps(props) ? (
     <RACLink
-      {...sharedProps}
+      {...(sharedProps as any)}
       className={props.className}
       ref={ref as React.ForwardedRef<HTMLAnchorElement>}
     >
@@ -42,7 +42,7 @@ export const AnchorOrButton = forwardRef(function AnchorOrButton(
     </RACLink>
   ) : (
     <RACButton
-      {...sharedProps}
+      {...(sharedProps as any)}
       className={props.className}
       ref={ref as React.ForwardedRef<HTMLButtonElement>}
     >

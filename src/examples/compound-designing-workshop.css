@@ -1,0 +1,94 @@
+/**
+ * Workshop-only styles aligned with Stitch "Tartans Institutional" reference:
+ * light tonal surfaces, CMU cardinal (#C41230) for primary actions, editorial spacing.
+ * Scoped so SDS tokens elsewhere stay unchanged.
+ */
+.compound-designing-workshop {
+  --cdw-cardinal: #c41230;
+  --cdw-cardinal-hover: #9a0021;
+  --cdw-surface-page: #f9f9f9;
+  --cdw-surface-muted: #f3f3f3;
+  --cdw-surface-raised: #ffffff;
+  --cdw-text: var(--sds-color-gray-1000);
+  --cdw-text-muted: var(--sds-color-gray-600);
+  --cdw-shadow-card: 0 1px 2px rgba(26, 28, 28, 0.06),
+    0 12px 32px rgba(26, 28, 28, 0.04);
+  color: var(--cdw-text);
+}
+
+.compound-designing-workshop .cdw-hero {
+  background: var(--cdw-surface-page);
+  border-bottom: var(--sds-size-stroke-border) solid
+    var(--sds-color-border-default-default);
+}
+
+.compound-designing-workshop .cdw-inline-illustration {
+  box-shadow: var(--cdw-shadow-card);
+  width: 100%;
+}
+
+.compound-designing-workshop .cdw-hero-kicker-row {
+  align-items: center;
+}
+
+.compound-designing-workshop .cdw-accent-bar {
+  background: var(--cdw-cardinal);
+  border-radius: var(--sds-size-radius-100);
+  flex-shrink: 0;
+  height: 2.5rem;
+  width: var(--sds-size-space-100);
+}
+
+.compound-designing-workshop .cdw-when-icon.icon {
+  --icon-color: var(--cdw-cardinal);
+  flex-shrink: 0;
+  margin-top: var(--sds-size-space-100);
+}
+
+.compound-designing-workshop .cdw-kicker {
+  color: var(--cdw-text-muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.compound-designing-workshop .cdw-section-muted {
+  background: var(--cdw-surface-muted);
+}
+
+.compound-designing-workshop .cdw-card {
+  background: var(--cdw-surface-raised);
+  border-radius: var(--sds-size-radius-200);
+  box-shadow: var(--cdw-shadow-card);
+  padding: var(--sds-size-space-600);
+}
+
+.compound-designing-workshop .cdw-step-label {
+  color: var(--cdw-cardinal);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+.compound-designing-workshop .cdw-cta {
+  background: var(--cdw-surface-raised);
+  border-top: var(--sds-size-stroke-border) solid
+    var(--sds-color-border-default-default);
+}
+
+.compound-designing-workshop .cdw-btn-primary.button-variant-primary {
+  --button-background-color: var(--cdw-cardinal);
+  --button-border-color: var(--cdw-cardinal);
+  --button-color: var(--sds-color-white-1000);
+}
+
+.compound-designing-workshop .cdw-btn-primary.button-variant-primary[data-hovered]:not(
+    [data-disabled]
+  ) {
+  --button-background-color: var(--cdw-cardinal-hover);
+  --button-border-color: var(--cdw-cardinal-hover);
+}
+
+.compound-designing-workshop .cdw-tag-cardinal.tag-scheme-neutral.tag-variant-secondary {
+  --tag-background-color: rgba(196, 18, 48, 0.1);
+  --tag-color: var(--cdw-cardinal);
+  --tag-icon: var(--cdw-cardinal);
+}

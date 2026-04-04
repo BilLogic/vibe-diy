@@ -25,7 +25,7 @@ export const Button = React.forwardRef(function Button(
 
   return isAnchorProps(props) ? (
     <RACLink
-      {...sharedProps}
+      {...(sharedProps as any)}
       className={classNames}
       ref={ref as React.ForwardedRef<HTMLAnchorElement>}
     >
@@ -33,7 +33,7 @@ export const Button = React.forwardRef(function Button(
     </RACLink>
   ) : (
     <RACButton
-      {...sharedProps}
+      {...(sharedProps as any)}
       className={classNames}
       ref={ref as React.ForwardedRef<HTMLButtonElement>}
     >
@@ -71,7 +71,7 @@ export const ButtonDanger = React.forwardRef(function Button(
 
   return isAnchorProps(props) ? (
     <RACLink
-      {...sharedProps}
+      {...(sharedProps as any)}
       className={classNames}
       ref={ref as React.ForwardedRef<HTMLAnchorElement>}
     >
@@ -79,7 +79,7 @@ export const ButtonDanger = React.forwardRef(function Button(
     </RACLink>
   ) : (
     <RACButton
-      {...sharedProps}
+      {...(sharedProps as any)}
       className={classNames}
       ref={ref as React.ForwardedRef<HTMLButtonElement>}
     >
@@ -92,17 +92,17 @@ type ButtonBaseProps = {
   type?: ComponentPropsWithoutRef<"button">["type"];
   size?: "small" | "medium";
   variant?:
-    | "primary"
-    | "neutral"
-    | "subtle"
-    | "danger-primary"
-    | "danger-subtle";
+  | "primary"
+  | "neutral"
+  | "subtle"
+  | "danger-primary"
+  | "danger-subtle";
 } & AnchorOrButtonProps;
 
 function isAnchorProps(
   props: ButtonBaseProps | ButtonDangerProps,
 ): props is (ButtonBaseProps | ButtonDangerProps) &
-  ComponentPropsWithoutRef<typeof RACLink> {
+ComponentPropsWithoutRef<typeof RACLink> {
   return "href" in props;
 }
 

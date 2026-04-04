@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { useAuth } from "data";
 import { useMediaQuery } from "hooks";
-import { IconChevronDown, IconMenu, IconX } from "icons";
+import { IconChevronDown, IconLayers, IconMenu, IconX } from "icons";
 import { Flex, FlexItem, Section, type SectionProps } from "layout";
 import {
   Avatar,
@@ -12,7 +12,6 @@ import {
   DialogModal,
   IconButton,
   Label,
-  Logo,
   Menu,
   MenuItem,
   MenuPopover,
@@ -183,8 +182,19 @@ export function HeaderAuth() {
   );
 }
 
-export type HeaderProps = Omit<SectionProps, "variant" | "padding" | "src">;
-export function Header({ className, ...props }: HeaderProps) {
+export type HeaderProps = Omit<SectionProps, "variant" | "padding" | "src"> & {
+  /** In-app anchor for the header mark (e.g. main content id). */
+  logoHref?: string;
+  /** Accessible name for the header mark control. */
+  logoAriaLabel?: string;
+};
+
+export function Header({
+  className,
+  logoHref = "#workshop-hero-heading",
+  logoAriaLabel = "Back to main content",
+  ...props
+}: HeaderProps) {
   return (
     <Section
       className="header"
@@ -195,7 +205,13 @@ export function Header({ className, ...props }: HeaderProps) {
     >
       <Flex container alignPrimary="space-between" alignSecondary="center">
         <FlexItem size="minor">
-          <Logo />
+          <IconButton
+            href={logoHref}
+            variant="subtle"
+            aria-label={logoAriaLabel}
+          >
+            <IconLayers />
+          </IconButton>
         </FlexItem>
         <FlexItem size="major">
           <Flex gap="600" alignPrimary="end" alignSecondary="center">

@@ -1,26 +1,31 @@
 import { Footer, Header } from "compositions";
 import { AllProviders } from "data";
-import { Demo } from "./examples/Demo";
-import { FAQs } from "./examples/FAQs";
-import { MavenCoursePageComparison } from "./examples/iterations/maven-course-page/ComparisonView";
-import { PanelSections } from "./examples/PanelSections";
-import { PricingGrid } from "./examples/PricingGrid";
-import { ProductDetails } from "./examples/ProductDetails";
-import { ProductGrid } from "./examples/ProductGrid";
-import { WelcomeHero } from "./examples/WelcomeHero";
+import { CompoundDesigningWorkshop } from "./examples/CompoundDesigningWorkshop";
+import { SdsWorkshopWelcomePage } from "./examples/SdsWorkshopWelcomePage";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [hash, setHash] = useState(() => window.location.hash);
+
+  useEffect(() => {
+    const onHashChange = () => setHash(window.location.hash);
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
+
+  const isSdsWelcome = hash === "#sds-welcome";
+
   return (
     <AllProviders>
-      <Header />
-      <Demo />
-      <MavenCoursePageComparison />
-      <WelcomeHero />
-      <PanelSections />
-      <PricingGrid />
-      <FAQs />
-      <ProductDetails />
-      <ProductGrid />
+      <Header
+        logoAriaLabel={
+          isSdsWelcome
+            ? "Back to SDS overview top"
+            : "Back to workshop introduction"
+        }
+        logoHref={isSdsWelcome ? "#sds-welcome-top" : "#workshop-hero-heading"}
+      />
+      {isSdsWelcome ? <SdsWorkshopWelcomePage /> : <CompoundDesigningWorkshop />}
       <Footer />
     </AllProviders>
   );
